@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc versao="4.00"
+    xmlns="http://www.portalfiscal.inf.br/nfe">
+    <NFe
+        xmlns="http://www.portalfiscal.inf.br/nfe">
+        <infNFe versao="4.00" Id="NFe15191114192094000152550010000154061295059882">
+            <ide>
+                <cUF>15</cUF>
+                <cNF>29505988</cNF>
+                <natOp>VENDA DE MERCADORIA ADQUIRIDA RECEBIDA D</natOp>
+                <mod>55</mod>
+                <serie>1</serie>
+                <nNF>15406</nNF>
+                <dhEmi>2019-11-19T08:46:41-03:00</dhEmi>
+                <dhSaiEnt>2019-11-19T08:46:41-03:00</dhSaiEnt>
+                <tpNF>1</tpNF>
+                <idDest>1</idDest>
+                <cMunFG>1502400</cMunFG>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>2</cDV>
+                <tpAmb>1</tpAmb>
+                <finNFe>1</finNFe>
+                <indFinal>0</indFinal>
+                <indPres>1</indPres>
+                <procEmi>0</procEmi>
+                <verProc>Ecocentauro_05002002</verProc>
+            </ide>
+            <emit>
+                <CNPJ>14192094000152</CNPJ>
+                <xNome>L. D. M. DA SILVA EPP</xNome>
+                <xFant>GALERIA 2 IRMAOS (L.D.M)</xFant>
+                <enderEmit>
+                    <xLgr>BENJAMIN CONSTANT</xLgr>
+                    <nro>3214</nro>
+                    <xBairro>CAICARA</xBairro>
+                    <cMun>1502400</cMun>
+                    <xMun>Castanhal</xMun>
+                    <UF>PA</UF>
+                    <CEP>68740000</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                    <fone>9137214016</fone>
+                </enderEmit>
+                <IE>153463899</IE>
+                <CRT>1</CRT>
+            </emit>
+            <dest>
+                <CNPJ>34876256000189</CNPJ>
+                <xNome>DELSON L.F DE SOUSA</xNome>
+                <enderDest>
+                    <xLgr>AVE CORONEL NAZEAZENO FERREIRA</xLgr>
+                    <nro>1249</nro>
+                    <xCpl>BOX 1</xCpl>
+                    <xBairro>PERPETUO SOCORRO</xBairro>
+                    <cMun>1501709</cMun>
+                    <xMun>Braganca</xMun>
+                    <UF>PA</UF>
+                    <CEP>68600000</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderDest>
+                <indIEDest>1</indIEDest>
+                <IE>156612887</IE>
+            </dest>
+            <det nItem="1">
+                <prod>
+                    <cProd>010052</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>PASTA TRANS OFICIO 1CM</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>2.0000</qCom>
+                    <vUnCom>13.9000000000</vUnCom>
+                    <vProd>27.80</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>2.0000</qTrib>
+                    <vUnTrib>13.9000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>1.17</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="2">
+                <prod>
+                    <cProd>010571</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>PASTA CLAS. C/ELASTANO 10X1 SORTIDO</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>3.0000</qCom>
+                    <vUnCom>18.9000000000</vUnCom>
+                    <vProd>56.70</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>3.0000</qTrib>
+                    <vUnTrib>18.9000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>2.38</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="3">
+                <prod>
+                    <cProd>010558</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>ACETONA AVANTE 80ML</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>2.0000</qCom>
+                    <vUnCom>17.9000000000</vUnCom>
+                    <vProd>35.80</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>2.0000</qTrib>
+                    <vUnTrib>17.9000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>1.50</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="4">
+                <prod>
+                    <cProd>010559</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>ENVELOPE AMARELO</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>30.0000000000</vUnCom>
+                    <vProd>30.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>30.0000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>1.26</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="5">
+                <prod>
+                    <cProd>010560</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>CANETA COMPACTO 0,7 100X1</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>55.0000000000</vUnCom>
+                    <vProd>55.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>55.0000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>2.31</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="6">
+                <prod>
+                    <cProd>010561</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>CANETA COMPACTO 0,7 100X1</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>55.0000000000</vUnCom>
+                    <vProd>55.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>55.0000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>2.31</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="7">
+                <prod>
+                    <cProd>010562</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>COLA BRANCA ESCOLAR MARIPEL</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>10.9000000000</vUnCom>
+                    <vProd>10.90</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>10.9000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.46</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="8">
+                <prod>
+                    <cProd>010053</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>COLA P/ ISOPOR MARIPEL 40G</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>CX</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>21.5000000000</vUnCom>
+                    <vProd>21.50</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>CX</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>21.5000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.90</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="9">
+                <prod>
+                    <cProd>010545</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>LAPIS DE COR LEONORA GD 6X1</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>CX</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>15.0000000000</vUnCom>
+                    <vProd>15.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>CX</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>15.0000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.63</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="10">
+                <prod>
+                    <cProd>010563</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>LAPIS DE COR LEONORA PQ 422</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>6.0000</qCom>
+                    <vUnCom>1.5700000000</vUnCom>
+                    <vProd>9.42</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>6.0000</qTrib>
+                    <vUnTrib>1.5700000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.40</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="11">
+                <prod>
+                    <cProd>010546</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>REABASTECEDOR P/ QB COMPACT</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>CX</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>57.0000000000</vUnCom>
+                    <vProd>57.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>CX</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>57.0000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>2.39</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="12">
+                <prod>
+                    <cProd>010547</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>BORRACHA ESC MERCUR RECORD</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>CX</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>16.9000000000</vUnCom>
+                    <vProd>16.90</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>CX</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>16.9000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.71</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="13">
+                <prod>
+                    <cProd>010564</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>MASSINHA P/MODELAR MOHNIS</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>19.9000000000</vUnCom>
+                    <vProd>19.90</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>19.9000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.84</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="14">
+                <prod>
+                    <cProd>010549</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>LINHA MAGNA POLI 10X1</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>CX</uCom>
+                    <qCom>7.0000</qCom>
+                    <vUnCom>7.2500000000</vUnCom>
+                    <vProd>50.75</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>CX</uTrib>
+                    <qTrib>7.0000</qTrib>
+                    <vUnTrib>7.2500000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>2.13</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <det nItem="15">
+                <prod>
+                    <cProd>010565</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>TEK BOND ADESIVO INSTANTANE</xProd>
+                    <NCM>01019000</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>65.0000000000</vUnCom>
+                    <vProd>65.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>65.0000000000</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>2.73</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>04</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>04</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <total>
+                <ICMSTot>
+                    <vBC>0.00</vBC>
+                    <vICMS>0.00</vICMS>
+                    <vICMSDeson>0.00</vICMSDeson>
+                    <vFCP>0.00</vFCP>
+                    <vBCST>0.00</vBCST>
+                    <vST>0.00</vST>
+                    <vFCPST>0.00</vFCPST>
+                    <vFCPSTRet>0.00</vFCPSTRet>
+                    <vProd>526.67</vProd>
+                    <vFrete>0.00</vFrete>
+                    <vSeg>0.00</vSeg>
+                    <vDesc>0.00</vDesc>
+                    <vII>0.00</vII>
+                    <vIPI>0.00</vIPI>
+                    <vIPIDevol>0.00</vIPIDevol>
+                    <vPIS>0.00</vPIS>
+                    <vCOFINS>0.00</vCOFINS>
+                    <vOutro>0.00</vOutro>
+                    <vNF>526.67</vNF>
+                    <vTotTrib>22.12</vTotTrib>
+                </ICMSTot>
+            </total>
+            <transp>
+                <modFrete>0</modFrete>
+                <vol>
+                    <qVol>0</qVol>
+                    <esp>DIVERSOS</esp>
+                </vol>
+            </transp>
+            <pag>
+                <detPag>
+                    <tPag>99</tPag>
+                    <vPag>526.67</vPag>
+                </detPag>
+            </pag>
+            <infAdic>
+                <infCpl>Trib aprox R$: 22,12 Federal e 0,00 EstadualFonte: IBPT/empresometro.com.br 801EC4Numero do Pedido: 0004236 Vend.: 999-VDA SEM FINANCEIRODOCUMENTO EMITIDO POR ME OU EPP OPTANTE PELO SIMPLES NACIONAL, NAO GERA DIREITO A CREDITO FISCAL DE ICMS, DE ISS E DE IPI.</infCpl>
+                <obsCont xCampo="PARTICIPANTE">
+                    <xTexto>06868 - XEROX AVENIDA</xTexto>
+                </obsCont>
+                <obsCont xCampo="INFORMACAO TRIBUTOS">
+                    <xTexto>Trib aprox R$: 22,12 Federal e 0,00 Estadual</xTexto>
+                </obsCont>
+                <obsCont xCampo="DOCUMENTO DE ORIGEM">
+                    <xTexto>0004236</xTexto>
+                </obsCont>
+                <obsCont xCampo="CONDICAO PAGAMENTO">
+                    <xTexto>001-A VISTA</xTexto>
+                </obsCont>
+                <obsCont xCampo="VENDEDOR">
+                    <xTexto>999-VDA SEM FINANCEIRO</xTexto>
+                </obsCont>
+            </infAdic>
+        </infNFe>
+        <Signature
+            xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+                <Reference URI="#NFe15191114192094000152550010000154061295059882">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                    <DigestValue>KV2TXmU87az1Fr9PKSZrPbx8ZvI=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>b0O2dOpFOKbdHCrxBiH0GwOATNW1bXPrSoh2cBGT3DKHIitks3Lz3pBo1sXf1H4WqXFukwXtCp4BqbgjrKMn4zzJVIsrPkeEpzPXa6SrrAYMnsfSKBfKAWoPs0glDTC3lVTK88ozDYCrsN8phiTGMeSn6bCIVNcUIg9ACpyGpuk=</SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>MIICOTCCAaKgAwIBAgIQJpLn3fwH17RNXJHw5VenaDANBgkqhkiG9w0BAQUFADBbMVkwVwYDVQQDHlAAdwB3AHcALgBmAHMAaQBzAHQALgBjAG8AbQAuAGIAcgAgACgAUwBFAE0AIABWAEEATABJAEQAQQBEAEUAIABKAFUAUgDNAEQASQBDAEEAKTAeFw0xNTEyMjQwODI1MjVaFw0xODEyMjQwODI1MjVaMFsxWTBXBgNVBAMeUAB3AHcAdwAuAGYAcwBpAHMAdAAuAGMAbwBtAC4AYgByACAAKABTAEUATQAgAFYAQQBMAEkARABBAEQARQAgAEoAVQBSAM0ARABJAEMAQQApMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDX4BYmJiNwrPz9At2ioXYkMuMWAOf669VPS3SAzIKkJLhSE7Bf9sbTjGHRFZhs6STxKkMBKKnx6dqAEMGlQwDSU42/kqhGya28SUn3HigH2w3dR/536Gt4eAxyLp9ODNXUqWTpnraWCeT41kcnJ27cmOAUMxzxDcsA93n32L4u8wIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAAN89zf+wSFL+4+2Ic8mGva8Z51EzYzNgYEqXwEMHxw4jCxxbsuxewQWedSGWi3SFZla6zmNUEA+UO95tSZ353klTvWDzut2BFSJOPLcMu8HPTTdnMt4ofVeVqKyi2vp+3t78vjqDAAfSAu5C9wT7stoUx41Nok+L6WbmpOIgvHy</X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+    </NFe>
+    <protNFe versao="4.00">
+        <infProt>
+            <tpAmb>1</tpAmb>
+            <verAplic>Ecocentauro_05002002</verAplic>
+            <chNFe>15191114192094000152550010000154061295059882</chNFe>
+            <dhRecbto>2019-11-19T08:48:50-03:00</dhRecbto>
+            <nProt>315190008665869</nProt>
+            <digVal>3K53x+kQUh5uWMPKjVnCG2LuWOk=</digVal>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso da NF-e</xMotivo>
+        </infProt>
+    </protNFe>
+</nfeProc>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Equal 0.0.1</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="photon/css/photon.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+  <div class="window" id="main">
+    <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+      <div class="pane space">
+        <div class="preloader">
+          <img src="images/Infinity-1s-200px.gif" />
+        </div>
+      </div>
+    </div>
+    <header class="toolbar toolbar-header">
+      <h1 class="title">Equal Community - Sistema Comercial - Clientes</h1>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <a href="main2.html" class="btn btn-default link">
+            <span class="icon icon-home span-margin"></span> Início
+          </a>
+          <button v-on:click="goToPDV" class="btn btn-default link">
+            <span class="icon icon-basket span-margin"></span>
+            PDV
+          </button>
+          <a href="sales.html" class="btn btn-default link">
+            <span class="icon icon-archive span-margin"></span> Vendas
+          </a>
+          <a href="products.html" class="btn btn-default link">
+            <span class="icon icon-basket span-margin"></span> Produtos
+          </a>
+          <a href="mainRegisters.html" class="btn btn-default link">
+            <span class="icon icon-newspaper span-margin"></span> Cadastros
+          </a>
+          <a href="mainNotes.html" class="btn btn-default link">
+            <span class="icon icon-docs span-margin"></span> Notas
+          </a>
+          <a href="support.html" class="btn btn-default link">
+            <span class="icon icon-plus-squared span-margin"></span> Suporte
+          </a>
+          <a href="reports.html" class="btn btn-default link">
+            <span class="icon icon-book-open span-margin"></span> Relatórios
+          </a>
+          <a href="manual.html" class="btn btn-default link">
+            <span class="icon icon-book-open span-margin"></span> Manual
+          </a>
+          <a href="settings.html" class="btn btn-default link">
+            <span class="icon icon-cog span-margin"></span> Configurações
+          </a>
+          <a href="shortcuts.html" class="btn btn-default link">
+            <span class="icon icon-layout span-margin"></span> Atalhos
+          </a>
+          <button v-if="registered==false" v-on:click="currentTab = tabs.register" class="btn btn-negative link">
+            <span class="icon icon-lock-open span-margin"></span>
+            Registrar
+          </button>
+        </div>
+      </div>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <a href="clients.html" class="btn btn-default link">
+            Listar Clientes
+          </a>
+          <a @click="createClient()" class="btn btn-default link">
+            Novo Cliente Pessoa Física
+          </a>
+          <a @click="createClient()" class="btn btn-default link">
+            Novo Cliente Pessoa Jurídica
+          </a>
+          <a @click="createClient()" class="btn btn-default link">
+            Relatórios
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="window-content" style="background-color: #f5f5f4">
+      <div class="pane-group">
+        <div class="pane space" v-if="openModal==false">
+          <table id="clientes" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Município</th>
+                <th>Complemento</th>
+                <th>Número</th>
+                <th>UF</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="cliente in clientes">
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.cpf}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>{{cliente.email}}</td>
+                <td>{{cliente.endereco}}</td>
+                <td>{{cliente.bairro}}</td>
+                <td>{{cliente.municipio}}</td>
+                <td>{{cliente.complemento}}</td>
+                <td>{{cliente.numero}}</td>
+                <td>{{cliente.uf}}</td>
+                <td>
+                  <button @click="editClient(cliente)" id="font-button"
+                    class="btn btn-large btn-default">Editar</button>
+                </td>
+                <td>
+                  <button @click="remove(cliente)" id="font-button" class="btn btn-large btn-default">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pane" v-if="openModal==true">
+          <p style="text-align: center; font-weight: bold; font-size: 16px; padding: 0px; margin: 10px 0px 0px 0px;">Cadastro de Clientes - Pessoa Física</p>
+          <div class="form-group">
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.nome" placeholder="Nome*">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.cpf" placeholder="CPF">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.rg" placeholder="RG">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.razao_social" placeholder="Razão Social">
+            </div>
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.nome_fantasia" placeholder="Nome Fantasia">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.cnpj" placeholder="CNPJ">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.inscricao_estadual"
+                placeholder="Inscrição Estadual">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.inscricao_municipal"
+                placeholder="Inscrição Municipal">
+            </div>
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.limite_credito" placeholder="Limite Crédito">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.telefone" placeholder="Telefone">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.fax" placeholder="Fax">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.celular" placeholder="Celular*">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box-line">
+              <div class="box-line-inner">
+                <input type="text" class="form-control" v-model="client.email" placeholder="E-mail">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.endereco" placeholder="Endereço*">
+            </div>
+            <div class="box">
+              <input type="number" class="form-control" v-model="client.numero" placeholder="Número*">
+            </div>
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.bairro" placeholder="Bairro">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box-line">
+              <div class="box-line-inner-little">
+                <div class="form-group">
+                  <input type="number" class="form-control" v-model="client.cep" placeholder="CEP">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.complemento" placeholder="Complemento">
+            </div>
+            <div class="box">
+              <input type="text" class="form-control" v-model="client.apelido" placeholder="Apelido">
+            </div>
+            <div class="box">
+              <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
+                <option v-if="client.estado_civil" value="{{client.estado_civil}}" selected>
+                  {{client.estado_civil}}</option>
+                <option v-else value="" selected>Estado Civil</option>
+                <option value="solteiro(a)">Solteiro(a)</option>
+                <option value="casado(a)">Casado(a)</option>
+                <option value="viuvo(a)">Viúvo(a)</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box-line">
+              <div class="box-line-inner-little">
+                <select name="mes" class="form-control" required="true" v-model="client.sexo">
+                  <option v-if="client.sexo" value="{{client.sexo}}" selected>
+                    {{client.sexo}}</option>
+                  <option v-else value="" selected>Sexo</option>
+                  <option value="masculino">Masculino(a)</option>
+                  <option value="feminino">Feminino(a)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box">
+              <select class="form-control" v-model="client.uf">
+                <option v-if="client.uf" value="{{client.uf}}" selected>
+                  {{client.uf}}</option>
+                <option v-else value="" selected>Estado*</option>
+                <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
+              </select>
+            </div>
+            <div class="box">
+              <select class="form-control" v-model="client.municipio">
+                <option v-if="client.municipio" value="{{client.municipio}}" selected>
+                  {{client.municipio}}</option>
+                <option v-else value="" selected>Município*</option>
+                <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="box-line">
+              <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
+              <button type="button" class="btn btn-mini btn-default" v-if="todaInfomacaoFront"
+                @click="clientStoreOrUpdate()">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+      <div class="toolbar-actions">
+        <span>SEMPRE EVOLUINDO!</span>
+        <span>SEMPRE EVOLUINDO!</span>
+      </div>
+    </footer>
+  </div>
+  <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="datatables11020/datatables.min.js"></script>
+  <script src="scripts/screens/clients/datatableset.js"></script>
+  <script src="vue/vue.min.js"></script>
+  <script src="scripts/screens/clients/clients.js"></script>
+</body>
+
+</html>

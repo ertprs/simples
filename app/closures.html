@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal Community - Sistema Comercial - Fechamentos</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default link">
+                        <span class="icon icon-home span-margin"></span> Início
+                    </a>
+                    <button v-on:click="goToPDV" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        PDV
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        <span class="icon icon-archive span-margin"></span> Vendas
+                    </a>
+                    <a href="products.html" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span> Produtos
+                    </a>
+                    <a href="mainRegisters.html" class="btn btn-default link">
+                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    </a>
+                    <a href="mainNotes.html" class="btn btn-default link">
+                        <span class="icon icon-docs span-margin"></span> Notas
+                    </a>
+                    <a href="support.html" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    </a>
+                    <a href="reports.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    </a>
+                    <a href="manual.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Manual
+                    </a>
+                    <a href="settings.html" class="btn btn-default link">
+                        <span class="icon icon-cog span-margin"></span> Configurações
+                    </a>
+                    <a href="shortcuts.html" class="btn btn-default link">
+                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    </a>
+                    <button v-if="registered==false" v-on:click="currentTab = tabs.register"
+                        class="btn btn-negative link">
+                        <span class="icon icon-lock-open span-margin"></span>
+                        Registrar
+                    </button>
+                </div>
+            </div>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <button class="btn btn-default" @click="updateBox()" style="padding: 10px">
+                        Atualizar Total
+                    </button>
+                    <button class="btn btn-default" @click="closeBox()" style="padding: 10px">
+                        Fechar Caixa
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        Geral
+                    </a>
+                    <button @click="goBleeds()" class="btn btn-default link">
+                        Sangrias
+                    </button>
+                    <button @click="goSupplements()" class="btn btn-default link">
+                        Suplementos
+                    </button>
+                    <button @click="goClosures()" class="btn btn-default link">
+                        Fechamentos
+                    </button>
+                </div>
+                <span class="pull-right link">
+                    SOMA DOS ITENS: R$ {{somaDeItensVendidos}}
+                </span>
+                <span class="pull-right link">
+                    TOTAL EM CAIXA: R$ {{caixa.valorAtual}}
+                </span>
+            </div>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane space">
+                    <table id="vendas" class="display" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Usuário</th>
+                                <th>Valor no momento do fechamento</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="caixa in caixafechado">
+                                <td>{{caixa.dataFull}}</td>
+                                <td>{{caixa.usuario}}</td>
+                                <td>{{caixa.valorNaHoraDoFechamento}}</td>
+                                <td style="text-align: right">
+                                    <button @click="removeBox(caixa)" id="font-button"
+                                        class="btn btn-large btn-primary">Remover</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="datatables11020/datatables.min.js"></script>
+    <script src="scripts/screens/sales/datatableset.js"></script>
+    <script src="scripts/screens/sales/sales.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal Community - Sistema Comercial - Importação de Notas</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default link">
+                        <span class="icon icon-home span-margin"></span> Início
+                    </a>
+                    <button v-on:click="goToPDV" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        PDV
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        <span class="icon icon-archive span-margin"></span> Vendas
+                    </a>
+                    <a href="products.html" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span> Produtos
+                    </a>
+                    <a href="mainRegisters.html" class="btn btn-default link">
+                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    </a>
+                    <a href="mainNotes.html" class="btn btn-default link">
+                        <span class="icon icon-docs span-margin"></span> Notas
+                    </a>
+                    <a href="support.html" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    </a>
+                    <a href="reports.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    </a>
+                    <a href="manual.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Manual
+                    </a>
+                    <a href="settings.html" class="btn btn-default link">
+                        <span class="icon icon-cog span-margin"></span> Configurações
+                    </a>
+                    <a href="shortcuts.html" class="btn btn-default link">
+                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    </a>
+                    <button v-if="registered==false" v-on:click="currentTab = tabs.register"
+                        class="btn btn-negative link">
+                        <span class="icon icon-lock-open span-margin"></span>
+                        Registrar
+                    </button>
+                </div>
+            </div>
+            <div class="toolbar-actions">
+                <a href="notes.html" class="btn btn-default link">
+                    Listar Notas
+                </a>
+            </div>
+        </header>
+        <div class="window-content" style="background-color: #f5f5f4">
+            <div class="pane-group">
+                <div class="pane">
+                    <span class="nav-group-item" style="padding-top: 20px;">
+                        <span class="icon icon-docs"></span>
+                        <a @click="addXMLAndAddProd()" style="text-decoration: none; color: black">
+                            Importação de Notas
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-docs"></span>
+                        <a href="nfces.html" style="text-decoration: none; color: black">
+                            Notas Emitidas
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-docs"></span>
+                        <a href="nfe.html" style="text-decoration: none; color: black">
+                            Emitir NF-e
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <!-- <span>SEMPRE EVOLUINDO!</span> -->
+            </div>
+        </footer>
+    </div>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="datatables11020/datatables.min.js"></script>
+    <script src="scripts/screens/notes/datatableset.js"></script>
+    <script src="vue/vue.min.js"></script>
+    <script src="scripts/screens/notes/notes.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal Community - Sistema Comercial - CFOP's</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default link">
+                        <span class="icon icon-home span-margin"></span> Início
+                    </a>
+                    <button v-on:click="goToPDV" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        PDV
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        <span class="icon icon-archive span-margin"></span> Vendas
+                    </a>
+                    <a href="products.html" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span> Produtos
+                    </a>
+                    <a href="mainRegisters.html" class="btn btn-default link">
+                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    </a>
+                    <a href="mainNotes.html" class="btn btn-default link">
+                        <span class="icon icon-docs span-margin"></span> Notas
+                    </a>
+                    <a href="support.html" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    </a>
+                    <a href="reports.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    </a>
+                    <a href="manual.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Manual
+                    </a>
+                    <a href="settings.html" class="btn btn-default link">
+                        <span class="icon icon-cog span-margin"></span> Configurações
+                    </a>
+                    <a href="shortcuts.html" class="btn btn-default link">
+                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    </a>
+                    <button v-if="registered==false" v-on:click="currentTab = tabs.register"
+                        class="btn btn-negative link">
+                        <span class="icon icon-lock-open span-margin"></span>
+                        Registrar
+                    </button>
+                </div>
+            </div>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <button @click="openNcms()" class="btn btn-default link">
+                        NCM's
+                    </button>
+                    <button @click="openCfops()" class="btn btn-default link">
+                        CFOP's
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane space">
+                    <h3 style="padding: 0px;">CFOP's</h3>
+                    <table class="display" style="width:100%" id="cfops">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Aplicação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="cfop in cfops">
+                                <td> {{cfop.codigocfop}}</td>
+                                <td> {{cfop.descricao}}</td>
+                                <td> {{cfop.aplicacao}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="datatables11020/datatables.min.js"></script>
+    <script src="vue/vue.min.js"></script>
+    <script src="scripts/screens/fiscals/datatableset.js"></script>
+    <script src="scripts/screens/fiscals/fiscals.js"></script>
+</body>
+
+</html>

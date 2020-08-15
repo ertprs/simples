@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Equal 0.0.1</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="photon/css/photon.css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="datatables/dataTables.bootstrap.css">
+</head>
+
+<body>
+  <div class="window">
+    <header class="toolbar toolbar-header">
+            <div class="toolbar-actions" style="margin-top: 9px">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-home" style="margin-right: 3px"></span>
+                        Início
+                    </a>
+                    <a href="pdv.html" v-if="fiscal.fiscal==true" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-basket" style="margin-right: 3px"></span>
+                        PDV
+                    </a>
+                    <a href="pdv.html" v-else class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-basket" style="margin-right: 3px"></span>
+                        PDV
+                    </a>
+                    <a href="vendas.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-book-open" style="margin-right: 3px"></span>
+                        Vendas
+                    </a>
+                    <a href="produtos.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-basket" style="margin-right: 3px"></span>
+                        Produtos
+                    </a>
+                    <a href="notas.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-download" style="margin-right: 3px"></span>
+                        Importar Nota Fiscal
+                    </a>
+                    <!-- <a href="usuarios.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-users" style="margin-right: 3px"></span>
+                        Usuários
+                    </a> -->
+                </div>
+                <span class="pull-right" v-bind:class="{'link': link}">
+                    <span class="icon icon-user" style="margin-right: 3px"></span>
+                    {{rootus.user}}
+                </span>
+            </div>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <button class="btn btn-default" @click="createCst()" style="padding: 10px; border-radius: 5px">
+            <span class="icon icon-plus"></span>
+            Novo CST
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="window-content" style="background-color: #f5f5f4">
+      <div class="pane-group">
+        <div class="pane">
+          <div class="row" style="padding: 10px">
+            <div class="col-md-12" style="margin-top:0px">
+              <table id="clientes" class="table table-hover table-striped table-bordered" id="font-table">
+                <thead>
+                  <tr>
+                    <th>Código Tributário</th>
+                    <th>Descrição</th>
+                    <th>Código Fiscal</th>
+                    <th>ICMS</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="cst in csts">
+                    <td>{{cst.codigotributario}}</td>
+                    <td>{{cst.descricao}}</td>
+                    <td>{{cst.codigofiscal}}</td>
+                    <td>{{cst.icms}}</td>
+                    <td>
+                      <button @click="editCst(cst)" id="font-button" class="btn btn-large btn-primary">Editar</button>
+                    </td>
+                    <td>
+                      <button @click="remove(cst)" id="font-button" class="btn btn-large btn-danger">Deletar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row" v-if="debug.debug==true">
+                <div class="col-md-12" style="padding: 0px">
+                  <div style="padding: 20px; background-color: black; color: white">
+                    <h1 style="color: white">Debug</h1>
+                    <pre style="background-color: black; color: white;border: 0px">{{$data.clientes | json}}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="toolbar toolbar-footer">
+      <div class="toolbar-actions">
+        <span>SEMPRE EVOLUINDO!</span>
+      </div>
+    </footer>
+  </div>
+  <div id="modal" v-if="openModal">
+    <div class="wrap">
+      <form id="cadastro-clientes" class="pane-body">
+        <h3 v-if="mode=='cadastro'">
+          <strong>Cadastro de CST's</strong>
+        </h3>
+        <h3 v-if="mode=='edicao'">
+          <strong>Edição de CST's</strong>
+        </h3>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="number" class="form-control" v-model="cst.codigotributario" placeholder="Código tributário*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="number" class="form-control" v-model="cst.codigofiscal" placeholder="Código Fiscal*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="cst.descricao" placeholder="Descrição*">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="number" class="form-control" v-model="cst.icms" placeholder="ICMS*">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="overflow: auto; height: 200px; background-color: white">
+          <ul v-for="cst in csts">
+            <li>{{cst.codigotributario}} - {{cst.descricao}}</li>
+          </ul>
+        </div>
+        <br>
+        <hr>
+        <div class="form-actions">
+          <button type="button" class="btn btn-large btn-danger" @click="openModal=false">Fechar</button>
+          <button type="button" class="btn btn-large btn-primary" v-if="todaInfomacaoFront"
+            @click="cstStoreOrUpdate()">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="bootstrap/js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="datatables/jquery.dataTables.min.js"></script>
+  <script src="scripts/screens/clientes/datatableset.js"></script>
+  <script src="sweetalert/sweetalert.min.js"></script>
+  <script src="vue/vue.min.js"></script>
+  <script src="scripts/screens/cst/cst.js"></script>
+</body>
+
+</html>

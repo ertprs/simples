@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Equal 0.0.1</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="photon/css/photon.css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <div class="window">
+    <header class="toolbar toolbar-header">
+      <p class="title" style="padding: 5px; font-size: 14px">Colibri 1.0.0 - Clientes</p>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <span class="icon icon-home" style="margin-right: 3px"></span>
+            Home
+          </a>
+          <a href="pdv.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <span class="icon icon-basket" style="margin-right: 3px"></span>
+            PDV
+          </a>
+          <a href="vendas.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <span class="icon icon-archive" style="margin-right: 3px"></span>
+            Estoque
+          </a>
+          <a href="vendas.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <span class="icon icon-book-open" style="margin-right: 3px"></span>
+            Relatórios
+          </a>
+          <a href="configuracoes.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <span class="icon icon-tools" style="margin-right: 3px"></span>
+            Configurações
+          </a>
+        </div>
+      </div>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <button class="btn btn-default" @click="createClient()" style="padding: 10px">
+            <span class="icon icon-plus"></span>
+            Novo Cliente
+          </button>
+          <button class="btn btn-default" style="padding: 10px" @click="makeDebug()">
+            <span class="icon icon-info-circled" style="margin-right: 3px"></span>
+            Ativar Modo Debug
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="window-content" style="background-color: #f5f5f4">
+      <div class="pane-group">
+        <div class="pane">
+          <div class="row">
+            <div class="col-md-12" style="padding:20px">
+              <button @click="saveFile" id="font-button" class="btn btn-large btn-primary">Save File</button>
+              <button @click="readFile" id="font-button" class="btn btn-large btn-primary">Read File</button>
+              <button @click="updateFile" id="font-button" class="btn btn-large btn-primary">Update File</button>
+              <button @click="deleteFile" id="font-button" class="btn btn-large btn-primary">Delete File</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="bootstrap/js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    var fs = require('fs');
+    const { dialog } = require('electron').remote;
+    window.Vue = require('vue');
+
+    new Vue({
+      el: 'body',
+      data: {
+        firstExample: 0,
+      },
+      methods: {
+        saveFile() {
+          let content = "Some text to save into the file";
+
+          dialog.showSaveDialog((fileName) => {
+            if (fileName === undefined) {
+              console.log("You didn't save the file");
+              return;
+            }
+
+            fs.writeFile(fileName, content, (err) => {
+              if (err) {
+                alert("An error ocurred creating the file " + err.message)
+              }
+
+              alert("The file has been succesfully saved");
+            });
+          });
+
+        },
+        readFile() {
+          dialog.showOpenDialog((fileNames) => {
+            // fileNames is an array that contains all the selected
+            if (fileNames === undefined) {
+              console.log("No file selected");
+              return;
+            }
+
+            fs.readFile(fileNames[0], 'utf-8', (err, data) => {
+              if (err) {
+                alert("An error ocurred reading the file :" + err.message);
+                return;
+              }
+
+              // Change how to handle the file content
+              console.log("The file content is : " + data);
+            });
+          });
+
+        },
+        updateFile() {
+          let content = "Novo";
+
+          dialog.showOpenDialog((fileNames) => {
+            // fileNames is an array that contains all the selected
+            if (fileNames === undefined) {
+              console.log("No file selected");
+              return;
+            }
+
+            fs.writeFile(fileNames[0], content, (err) => {
+              if (err) {
+                alert("An error ocurred creating the file " + err.message)
+              }
+
+              alert("The file has been succesfully saved");
+            });
+          });
+
+        },
+        deleteFile() {
+          dialog.showOpenDialog((fileNames) => {
+            // fileNames is an array that contains all the selected
+            if (fileNames === undefined) {
+              console.log("No file selected");
+              return;
+            }
+
+            if (fs.existsSync(fileNames[0])) {
+              fs.unlink(fileNames[0], (err) => {
+                if (err) {
+                  alert("An error ocurred updating the file" + err.message);
+                  console.log(err);
+                  return;
+                }
+                console.log("File succesfully deleted");
+              });
+            } else {
+              alert("This file doesn't exist, cannot delete");
+            }
+          });
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Equal 0.0.1</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="photon/css/photon.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+  <div class="window" id="main">
+    <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+      <div class="pane space">
+        <div class="preloader">
+          <img src="images/Infinity-1s-200px.gif" />
+        </div>
+      </div>
+    </div>
+    <header class="toolbar toolbar-header">
+      <h1 class="title">Equal Community - Sistema Comercial - Fornecedores</h1>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <a href="main2.html" class="btn btn-default link">
+            <span class="icon icon-home span-margin"></span> Início
+          </a>
+          <button v-on:click="goToPDV" class="btn btn-default link">
+            <span class="icon icon-basket span-margin"></span>
+            PDV
+          </button>
+          <a href="sales.html" class="btn btn-default link">
+            <span class="icon icon-archive span-margin"></span> Vendas
+          </a>
+          <a href="products.html" class="btn btn-default link">
+            <span class="icon icon-basket span-margin"></span> Produtos
+          </a>
+          <a href="mainRegisters.html" class="btn btn-default link">
+            <span class="icon icon-newspaper span-margin"></span> Cadastros
+          </a>
+          <a href="mainNotes.html" class="btn btn-default link">
+            <span class="icon icon-docs span-margin"></span> Notas
+          </a>
+          <a href="support.html" class="btn btn-default link">
+            <span class="icon icon-plus-squared span-margin"></span> Suporte
+          </a>
+          <a href="reports.html" class="btn btn-default link">
+            <span class="icon icon-book-open span-margin"></span> Relatórios
+          </a>
+          <a href="manual.html" class="btn btn-default link">
+            <span class="icon icon-book-open span-margin"></span> Manual
+          </a>
+          <a href="settings.html" class="btn btn-default link">
+            <span class="icon icon-cog span-margin"></span> Configurações
+          </a>
+          <a href="shortcuts.html" class="btn btn-default link">
+            <span class="icon icon-layout span-margin"></span> Atalhos
+          </a>
+          <button v-if="registered==false" v-on:click="currentTab = tabs.register" class="btn btn-negative link">
+            <span class="icon icon-lock-open span-margin"></span>
+            Registrar
+          </button>
+        </div>
+      </div>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <a @click="createOutfitter()" class="btn btn-default link" style="border-radius: 3px;">
+            Novo Fornecedor
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="window-content" style="background-color: #f5f5f4">
+      <div class="pane-group">
+        <div class="pane space" v-if="openModal==false">
+          <table id="fornecedores" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Nome</th>
+                <th>CNPJ/CPF</th>
+                <th>Fone</th>
+                <th>E-mail</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Município</th>
+                <th>Número</th>
+                <th>UF</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="fornecedor in fornecedores">
+                <td>{{fornecedor.dataRegistro}}</td>
+                <td>{{fornecedor.nome}}</td>
+                <td>{{fornecedor.cnpj_cpf}}</td>
+                <td>{{fornecedor.fone}}</td>
+                <td>{{fornecedor.email_site}}</td>
+                <td>{{fornecedor.endereco}}</td>
+                <td>{{fornecedor.bairro}}</td>
+                <td>{{fornecedor.cidade.nome}}</td>
+                <td>{{fornecedor.numero}}</td>
+                <td>{{fornecedor.estado.nome}}</td>
+                <td>
+                  <button @click="editOutfitter(fornecedor)" id="font-button"
+                    class="btn btn-large btn-default">Editar</button>
+                </td>
+                <td>
+                  <button @click="remove(fornecedor)" id="font-button"
+                    class="btn btn-large btn-default">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pane space" v-if="openModal==true">
+          <div class="position">
+            <div class="form-group">
+              <div id="box-1" class="box">
+                <input type="text" class="form-control" v-model="fornecedor.nome" placeholder="Nome">
+              </div>
+              <div id="box-1" class="box">
+                <input type="number" class="form-control" v-model="fornecedor.cnpj_cpf" placeholder="CNPJ/CPF">
+              </div>
+              <div id="box-1" class="box">
+                <input type="number" class="form-control" v-model="fornecedor.ie" placeholder="Inscrição Estadual">
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="box-1" class="box">
+                <input type="number" class="form-control" v-model="fornecedor.fone" placeholder="Telefone">
+              </div>
+              <div id="box-2" class="box">
+                <input type="number" class="form-control" v-model="fornecedor.fax" placeholder="Fax">
+              </div>
+              <div id="box-3" class="box">
+                <input type="text" class="form-control" v-model="fornecedor.email_site" placeholder="E-mail">
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="box-1" class="box">
+                <input type="text" class="form-control" v-model="fornecedor.endereco" placeholder="Endereço*">
+              </div>
+              <div id="box-2" class="box">
+                <input type="number" class="form-control" v-model="fornecedor.numero" placeholder="Número*">
+              </div>
+              <div id="box-3" class="box">
+                <input type="text" class="form-control" v-model="fornecedor.bairro" placeholder="Bairro*">
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="box-1" class="box">
+                <input type="number" class="form-control" v-model="fornecedor.cep" placeholder="CEP">
+              </div>
+              <div id="box-2" class="box">
+                <select class="form-control" v-model="fornecedor.estado.uf">
+                  <option v-if="fornecedor.estado.uf" value="{{fornecedor.estado.uf}}" selected>{{fornecedor.estado.uf}}
+                  </option>
+                  <option v-else value="" selected>Estado*</option>
+                  <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
+                </select>
+              </div>
+              <div id="box-3" class="box">
+                <select class="form-control" v-model="fornecedor.cidade.nome">
+                  <option v-if="fornecedor.cidade.nome" value="{{fornecedor.cidade.nome}}" selected>
+                    {{fornecedor.cidade.nome}}</option>
+                  <option v-else value="" selected>Cidade*</option>
+                  <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="box-line">
+                <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
+                <button type="button" class="btn btn-mini btn-default" @click="outfitterStoreOrUpdate()">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+      <div class="toolbar-actions">
+        <span>SEMPRE EVOLUINDO!</span>
+        <span>SEMPRE EVOLUINDO!</span>
+      </div>
+    </footer>
+  </div>
+  <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="datatables11020/datatables.min.js"></script>
+  <script src="scripts/screens/outfitters/datatableset.js"></script>
+  <script src="vue/vue.min.js"></script>
+  <script src="scripts/screens/outfitters/outfitters.js"></script>
+</body>
+
+</html>

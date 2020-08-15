@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal Community - Sistema Comercial - Importação de Notas</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default link">
+                        <span class="icon icon-home span-margin"></span> Início
+                    </a>
+                    <button v-on:click="goToPDV" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        PDV
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        <span class="icon icon-archive span-margin"></span> Vendas
+                    </a>
+                    <a href="products.html" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span> Produtos
+                    </a>
+                    <a href="mainRegisters.html" class="btn btn-default link">
+                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    </a>
+                    <a href="mainNotes.html" class="btn btn-default link">
+                        <span class="icon icon-docs span-margin"></span> Notas
+                    </a>
+                    <a href="support.html" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    </a>
+                    <a href="reports.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    </a>
+                    <a href="manual.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Manual
+                    </a>
+                    <a href="settings.html" class="btn btn-default link">
+                        <span class="icon icon-cog span-margin"></span> Configurações
+                    </a>
+                    <a href="shortcuts.html" class="btn btn-default link">
+                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    </a>
+                    <button v-if="registered==false" v-on:click="currentTab = tabs.register"
+                        class="btn btn-negative link">
+                        <span class="icon icon-lock-open span-margin"></span>
+                        Registrar
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="window-content" style="background-color: #f5f5f4">
+            <div class="pane-group">
+                <div class="pane space">
+                    <table id="notes" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Data da Nota</th>
+                                <th>Importar Dados</th>
+                                <th>Ver</th>
+                                <th>Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="nota in notas">
+                                <td>{{nota.data}}</td>
+                                <td v-if="nota.importado==true">
+                                    <p>Obs: Os dados dessa nota já foram adicionados!</p>
+                                </td>
+                                <td v-else>
+                                    <button @click="importProducts(nota)" id="font-button"
+                                        class="btn btn-default">Importar Produtos</button>
+                                </td>
+                                <td>
+                                    <button @click="viewNote(nota)" id="font-button" class="btn btn-default">Ver
+                                        Nota</button>
+                                </td>
+                                <td>
+                                    <button @click="removeNote(nota)" id="font-button"
+                                        class="btn btn-default">Deletar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="datatables11020/datatables.min.js"></script>
+    <script src="scripts/screens/notes/datatableset.js"></script>
+    <script src="vue/vue.min.js"></script>
+    <script src="scripts/screens/notes/notes.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal Community - Sistema Comercial - Notas</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <button @click="reload()" class="btn btn-default link">
+                        <span class="icon icon-arrows-ccw span-margin"></span>
+                        Recarregar
+                    </button>
+                    <button class="btn btn-default" @click="close()" style="padding: 10px">
+                        <span class="icon icon-cancel-squared span-margin"></span>
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="window-content" style="background-color: #f5f5f4">
+            <div class="pane-group">
+                <div class="pane space">
+                    <table class="display" style="width:100%" id="nfces">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Tipo</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="nfce in registroDeNotas">
+                                <td>{{nfce.data}}</td>
+                                <td>{{nfce.tipo}}</td>
+                                <td>
+                                    <button @click="remove(nfce)" id="font-button"
+                                        class="btn btn-default">Deletar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="datatables11020/datatables.min.js"></script>
+    <script src="vue/vue.min.js"></script>
+    <script src="scripts/screens/notes/nfces.js"></script>
+    <script src="scripts/screens/notes/datatableset.js"></script>
+</body>
+
+</html>

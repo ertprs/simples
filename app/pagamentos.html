@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Equal 0.0.1</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="photon/css/photon.css">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="datatables/dataTables.bootstrap.css">
+</head>
+
+<body>
+  <div class="window">
+    <header class="toolbar toolbar-header">
+      <p class="title" style="padding: 5px; font-size: 14px">Colibri 1.0 - Pagamentos</p>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <span class="icon icon-home" style="margin-right: 3px"></span>
+            Home
+          </a>
+          <a href="pdv.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            PDV
+          </a>
+          <a href="vendas.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Vendas
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Estoque
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Financeiro
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Fisco
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Consultas
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Relatórios
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Utilitários
+          </a>
+          <a href="configuracoes.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Configurações
+          </a>
+          <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+            <!-- <span class="icon icon-home" style="margin-right: 3px"></span> -->
+            Suporte
+          </a>
+        </div>
+      </div>
+      <div class="toolbar-actions">
+        <div class="btn-group">
+          <button class="btn btn-default" @click="createFornecedor()" style="padding: 10px">
+            <span class="icon icon-plus"></span>
+            Novo Fornecedor
+          </button>
+          <button class="btn btn-default" style="padding: 10px" @click="makeDebug()">
+            <span class="icon icon-info-circled" style="margin-right: 3px"></span>
+            Ativar Modo Debug
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane">
+          <div class="row" style="padding: 10px">
+            <div class="col-md-12" style="margin-top:0px">
+              <table id="fornecedores" class="table table-striped" id="font-table">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Endereço</th>
+                    <th>Bairro</th>
+                    <th>Município</th>
+                    <th>Complemento</th>
+                    <th>Número</th>
+                    <th>UF</th>
+                    <th>Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="fornecedor in fornecedores">
+                    <td>{{fornecedor.nome}}</td>
+                    <td>{{fornecedor.cpf}}</td>
+                    <td>{{fornecedor.telefone}}</td>
+                    <td>{{fornecedor.email}}</td>
+                    <td>{{fornecedor.endereco}}</td>
+                    <td>{{fornecedor.bairro}}</td>
+                    <td>{{fornecedor.municipio}}</td>
+                    <td>{{fornecedor.complemento}}</td>
+                    <td>{{fornecedor.numero}}</td>
+                    <td>{{fornecedor.uf}}</td>
+                    <td>
+                      <button @click="editFornecedor(fornecedor)" id="font-button"
+                        class="btn btn-large btn-primary">Editar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+              <div class="row" v-if="debug == true">
+                <div class="col-md-12" style="padding: 0px">
+                  <div style="padding: 20px; background-color: black; color: white">
+                    <h1 style="color: white">Debug</h1>
+                    <pre style="background-color: black; color: white;border: 0px">{{$data.fornecedores | json}}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal" v-if="openModal">
+    <div class="wrap">
+      <form class="pane-body">
+        <h3 v-if="mode=='cadastro'">
+          <strong>Cadastro de Fornecedor</strong>
+        </h3>
+        <h3 v-if="mode=='edicao'">
+          <strong>Edição de Fornecedor</strong>
+        </h3>
+        <hr>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.nome" placeholder="Nome*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.cnpj" placeholder="CNPJ">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.inscricao_estadual"
+                placeholder="Inscrição Estadual">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.inscricao_municipal"
+                placeholder="Inscrição Municipal">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.razao_social" placeholder="Razão Social">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.nome_fantasia" placeholder="Nome Fantasia">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.telefone" placeholder="Telefone">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.fax" placeholder="Fax">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.celular" placeholder="Celular*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.email" placeholder="E-mail">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.endereco" placeholder="Endereço*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.numero" placeholder="Número*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.bairro" placeholder="Bairro*"
+                style="border-color: red">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.cep" placeholder="CEP">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.complemento" placeholder="Complemento">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.apelido" placeholder="Apelido">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4" v-if="mode=='edicao'">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.uf" placeholder="Estado">
+            </div>
+          </div>
+          <div class="col-md-4" v-if="mode=='cadastro'">
+            <div class="form-group">
+              <select class="form-control" style="border-color: red" v-model="fornecedor.uf">
+                <option value="" selected>Estado*</option>
+                <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4" v-if="mode=='edicao'">
+            <div class="form-group">
+              <input type="text" class="form-control" v-model="fornecedor.municipio" placeholder="Município">
+            </div>
+          </div>
+          <div class="col-md-4" v-if="mode=='cadastro'">
+            <div class="form-group">
+              <select class="form-control" style="border-color: red" v-model="fornecedor.municipio">
+                <option value="" selected>Município*</option>
+                <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-actions">
+          <button type="button" class="btn btn-large btn-negative" @click="openModal=false">Fechar</button>
+          <button type="button" class="btn btn-large btn-primary" v-if="todaInfomacaoFront"
+            @click="fornecedorStoreOrUpdate()">Salvar</button>
+        </div>
+      </form>
+      <p v-if="debug == true" style="padding: 10px; background-color: black; color: white">{{fornecedor | json}}</p>
+    </div>
+  </div>
+  <script src="bootstrap/js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="datatables/jquery.dataTables.min.js"></script>
+  <script src="scripts/screens/fornecedores/datatableset.js"></script>
+  <script src="vue/vue.min.js"></script>
+  <script src="scripts/screens/fornecedores/fornecedores.js"></script>
+</body>
+
+</html>

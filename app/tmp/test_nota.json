@@ -1,0 +1,1157 @@
+{
+    "nfeProc": {
+        "_attributes": {
+            "versao": "4.00",
+            "xmlns": "http://www.portalfiscal.inf.br/nfe"
+        },
+        "NFe": {
+            "_attributes": {
+                "xmlns": "http://www.portalfiscal.inf.br/nfe"
+            },
+            "infNFe": {
+                "_attributes": {
+                    "xmlns": "http://www.portalfiscal.inf.br/nfe",
+                    "Id": "NFe15190404949905000163550010000956581004640327",
+                    "versao": "4.00"
+                },
+                "ide": {
+                    "cUF": {
+                        "_text": "15"
+                    },
+                    "cNF": {
+                        "_text": "00464032"
+                    },
+                    "natOp": {
+                        "_text": "Venda de mercadoria adqreceb de terceir"
+                    },
+                    "mod": {
+                        "_text": "55"
+                    },
+                    "serie": {
+                        "_text": "1"
+                    },
+                    "nNF": {
+                        "_text": "95658"
+                    },
+                    "dhEmi": {
+                        "_text": "2019-04-29T16:48:24-03:00"
+                    },
+                    "dhSaiEnt": {
+                        "_text": "2019-04-29T16:48:24-03:00"
+                    },
+                    "tpNF": {
+                        "_text": "1"
+                    },
+                    "idDest": {
+                        "_text": "1"
+                    },
+                    "cMunFG": {
+                        "_text": "1500800"
+                    },
+                    "tpImp": {
+                        "_text": "1"
+                    },
+                    "tpEmis": {
+                        "_text": "1"
+                    },
+                    "cDV": {
+                        "_text": "7"
+                    },
+                    "tpAmb": {
+                        "_text": "1"
+                    },
+                    "finNFe": {
+                        "_text": "1"
+                    },
+                    "indFinal": {
+                        "_text": "0"
+                    },
+                    "indPres": {
+                        "_text": "0"
+                    },
+                    "procEmi": {
+                        "_text": "0"
+                    },
+                    "verProc": {
+                        "_text": "000"
+                    }
+                },
+                "emit": {
+                    "CNPJ": {
+                        "_text": "04949905000163"
+                    },
+                    "xNome": {
+                        "_text": "F CARDOSO E CIA LTDA"
+                    },
+                    "xFant": {
+                        "_text": "SHOPPING DA SAUDE (M)"
+                    },
+                    "enderEmit": {
+                        "xLgr": {
+                            "_text": "R JOAO NUNES DE SOUZA, BR 316 KM 8"
+                        },
+                        "nro": {
+                            "_text": "125"
+                        },
+                        "xBairro": {
+                            "_text": "AGUAS BRANCAS"
+                        },
+                        "cMun": {
+                            "_text": "1501402"
+                        },
+                        "xMun": {
+                            "_text": "ANANINDEUA"
+                        },
+                        "UF": {
+                            "_text": "PA"
+                        },
+                        "CEP": {
+                            "_text": "67033030"
+                        },
+                        "cPais": {
+                            "_text": "1058"
+                        },
+                        "xPais": {
+                            "_text": "BRASIL"
+                        },
+                        "fone": {
+                            "_text": "9132021344"
+                        }
+                    },
+                    "IE": {
+                        "_text": "150515782"
+                    },
+                    "CRT": {
+                        "_text": "3"
+                    }
+                },
+                "dest": {
+                    "CNPJ": {
+                        "_text": "07832455000112"
+                    },
+                    "xNome": {
+                        "_text": "BRAGANTINA DISTRIBUIDORA DE MEDICAMENTOS LTDA ME"
+                    },
+                    "enderDest": {
+                        "xLgr": {
+                            "_text": "ROD  DOM ELISEU"
+                        },
+                        "nro": {
+                            "_text": "0"
+                        },
+                        "xBairro": {
+                            "_text": "ALTO PARAISO"
+                        },
+                        "cMun": {
+                            "_text": "1501709"
+                        },
+                        "xMun": {
+                            "_text": "BRAGANCA"
+                        },
+                        "UF": {
+                            "_text": "PA"
+                        },
+                        "CEP": {
+                            "_text": "68600000"
+                        },
+                        "cPais": {
+                            "_text": "1058"
+                        },
+                        "xPais": {
+                            "_text": "BRASIL"
+                        },
+                        "fone": {
+                            "_text": "34252450"
+                        }
+                    },
+                    "indIEDest": {
+                        "_text": "1"
+                    },
+                    "IE": {
+                        "_text": "152517359"
+                    },
+                    "email": {
+                        "_text": "distribuidorabragantina@hotmail.com"
+                    }
+                },
+                "det": [
+                    {
+                        "_attributes": {
+                            "nItem": "1"
+                        },
+                        "prod": {
+                            "cProd": {
+                                "_text": "00027041"
+                            },
+                            "cEAN": {
+                                "_text": "7898560663321"
+                            },
+                            "xProd": {
+                                "_text": "ENOXAPARINA SODICA 60 MG  0,6ML USO AD SC IV  CUTE"
+                            },
+                            "NCM": {
+                                "_text": "30049099"
+                            },
+                            "CEST": {
+                                "_text": "1300100"
+                            },
+                            "CFOP": {
+                                "_text": "5102"
+                            },
+                            "uCom": {
+                                "_text": "SE"
+                            },
+                            "qCom": {
+                                "_text": "20"
+                            },
+                            "vUnCom": {
+                                "_text": "24"
+                            },
+                            "vProd": {
+                                "_text": "480"
+                            },
+                            "cEANTrib": {
+                                "_text": "7898560663321"
+                            },
+                            "uTrib": {
+                                "_text": "SE"
+                            },
+                            "qTrib": {
+                                "_text": "20"
+                            },
+                            "vUnTrib": {
+                                "_text": "24"
+                            },
+                            "indTot": {
+                                "_text": "1"
+                            },
+                            "rastro": {
+                                "nLote": {
+                                    "_text": "JC835"
+                                },
+                                "qLote": {
+                                    "_text": "20.000"
+                                },
+                                "dFab": {
+                                    "_text": "2018-10-01"
+                                },
+                                "dVal": {
+                                    "_text": "2020-09-01"
+                                }
+                            }
+                        },
+                        "imposto": {
+                            "ICMS": {
+                                "ICMS70": {
+                                    "orig": {
+                                        "_text": "0"
+                                    },
+                                    "CST": {
+                                        "_text": "70"
+                                    },
+                                    "modBC": {
+                                        "_text": "0"
+                                    },
+                                    "pRedBC": {
+                                        "_text": "4"
+                                    },
+                                    "vBC": {
+                                        "_text": "225.88"
+                                    },
+                                    "pICMS": {
+                                        "_text": "17.0000"
+                                    },
+                                    "vICMS": {
+                                        "_text": "38.39"
+                                    },
+                                    "modBCST": {
+                                        "_text": "0"
+                                    },
+                                    "pMVAST": {
+                                        "_text": "40.0000"
+                                    },
+                                    "pRedBCST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vBCST": {
+                                        "_text": "316.24"
+                                    },
+                                    "pICMSST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vICMSST": {
+                                        "_text": "15.36"
+                                    }
+                                }
+                            },
+                            "PIS": {
+                                "PISAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pPIS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vPIS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            },
+                            "COFINS": {
+                                "COFINSAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pCOFINS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vCOFINS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            }
+                        },
+                        "infAdProd": {
+                            "_text": "ENOXAPARINA SODICA 60 MG/ 0,6ML USO AD SC/IV (CUTE| LOTE:JC835 FAB: 01-10-2018 / VAL: 01-09-2020|"
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "nItem": "2"
+                        },
+                        "prod": {
+                            "cProd": {
+                                "_text": "00016671"
+                            },
+                            "cEAN": {
+                                "_text": "7896112197805"
+                            },
+                            "xProd": {
+                                "_text": "HIOSCINA SIMPLES 20MG ML 1ML INJ  GENERICO  IM IV"
+                            },
+                            "NCM": {
+                                "_text": "30049099"
+                            },
+                            "CEST": {
+                                "_text": "1300100"
+                            },
+                            "CFOP": {
+                                "_text": "5102"
+                            },
+                            "uCom": {
+                                "_text": "AM"
+                            },
+                            "qCom": {
+                                "_text": "402"
+                            },
+                            "vUnCom": {
+                                "_text": "1"
+                            },
+                            "vProd": {
+                                "_text": "402"
+                            },
+                            "cEANTrib": {
+                                "_text": "7896112197805"
+                            },
+                            "uTrib": {
+                                "_text": "AM"
+                            },
+                            "qTrib": {
+                                "_text": "402"
+                            },
+                            "vUnTrib": {
+                                "_text": "1"
+                            },
+                            "indTot": {
+                                "_text": "1"
+                            },
+                            "rastro": {
+                                "nLote": {
+                                    "_text": "9780028"
+                                },
+                                "qLote": {
+                                    "_text": "402.000"
+                                },
+                                "dFab": {
+                                    "_text": "2018-11-01"
+                                },
+                                "dVal": {
+                                    "_text": "2020-11-01"
+                                }
+                            }
+                        },
+                        "imposto": {
+                            "ICMS": {
+                                "ICMS70": {
+                                    "orig": {
+                                        "_text": "0"
+                                    },
+                                    "CST": {
+                                        "_text": "70"
+                                    },
+                                    "modBC": {
+                                        "_text": "0"
+                                    },
+                                    "pRedBC": {
+                                        "_text": "4"
+                                    },
+                                    "vBC": {
+                                        "_text": "189.17"
+                                    },
+                                    "pICMS": {
+                                        "_text": "17.0000"
+                                    },
+                                    "vICMS": {
+                                        "_text": "32.15"
+                                    },
+                                    "modBCST": {
+                                        "_text": "0"
+                                    },
+                                    "pMVAST": {
+                                        "_text": "40.0000"
+                                    },
+                                    "pRedBCST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vBCST": {
+                                        "_text": "264.85"
+                                    },
+                                    "pICMSST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vICMSST": {
+                                        "_text": "12.86"
+                                    }
+                                }
+                            },
+                            "PIS": {
+                                "PISAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pPIS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vPIS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            },
+                            "COFINS": {
+                                "COFINSAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pCOFINS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vCOFINS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            }
+                        },
+                        "infAdProd": {
+                            "_text": "HIOSCINA SIMPLES 20MG/ML 1ML INJ (GENERICO) IM/IV| LOTE:9780028 FAB: 01-11-2018 / VAL: 01-11-2020|"
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "nItem": "3"
+                        },
+                        "prod": {
+                            "cProd": {
+                                "_text": "00003518"
+                            },
+                            "cEAN": {
+                                "_text": "7896006270218"
+                            },
+                            "xProd": {
+                                "_text": "METILERGOMETRINA 0,2 MG ML SOL INJ IM EV SC1ML  ER"
+                            },
+                            "NCM": {
+                                "_text": "30049099"
+                            },
+                            "CEST": {
+                                "_text": "1300100"
+                            },
+                            "CFOP": {
+                                "_text": "5102"
+                            },
+                            "uCom": {
+                                "_text": "AM"
+                            },
+                            "qCom": {
+                                "_text": "200"
+                            },
+                            "vUnCom": {
+                                "_text": "1.40"
+                            },
+                            "vProd": {
+                                "_text": "280"
+                            },
+                            "cEANTrib": {
+                                "_text": "7896006270218"
+                            },
+                            "uTrib": {
+                                "_text": "AM"
+                            },
+                            "qTrib": {
+                                "_text": "200"
+                            },
+                            "vUnTrib": {
+                                "_text": "1.40"
+                            },
+                            "indTot": {
+                                "_text": "1"
+                            },
+                            "rastro": {
+                                "nLote": {
+                                    "_text": "1904028"
+                                },
+                                "qLote": {
+                                    "_text": "200.000"
+                                },
+                                "dFab": {
+                                    "_text": "2019-01-01"
+                                },
+                                "dVal": {
+                                    "_text": "2021-01-01"
+                                }
+                            }
+                        },
+                        "imposto": {
+                            "ICMS": {
+                                "ICMS70": {
+                                    "orig": {
+                                        "_text": "0"
+                                    },
+                                    "CST": {
+                                        "_text": "70"
+                                    },
+                                    "modBC": {
+                                        "_text": "0"
+                                    },
+                                    "pRedBC": {
+                                        "_text": "4"
+                                    },
+                                    "vBC": {
+                                        "_text": "131.76"
+                                    },
+                                    "pICMS": {
+                                        "_text": "17.0000"
+                                    },
+                                    "vICMS": {
+                                        "_text": "22.39"
+                                    },
+                                    "modBCST": {
+                                        "_text": "0"
+                                    },
+                                    "pMVAST": {
+                                        "_text": "40.0000"
+                                    },
+                                    "pRedBCST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vBCST": {
+                                        "_text": "184.47"
+                                    },
+                                    "pICMSST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vICMSST": {
+                                        "_text": "8.96"
+                                    }
+                                }
+                            },
+                            "PIS": {
+                                "PISAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pPIS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vPIS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            },
+                            "COFINS": {
+                                "COFINSAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pCOFINS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vCOFINS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            }
+                        },
+                        "infAdProd": {
+                            "_text": "METILERGOMETRINA 0,2 MG/ML SOL INJ IM/EV/SC1ML (ER| LOTE:1904028 FAB: 01-01-2019 / VAL: 01-01-2021|"
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "nItem": "4"
+                        },
+                        "prod": {
+                            "cProd": {
+                                "_text": "00012088"
+                            },
+                            "cEAN": {
+                                "_text": "7897947706545"
+                            },
+                            "xProd": {
+                                "_text": "SORO GLICOSADO 05% 500ML  SIST FECHADO   1510023"
+                            },
+                            "NCM": {
+                                "_text": "30049099"
+                            },
+                            "CEST": {
+                                "_text": "1300100"
+                            },
+                            "CFOP": {
+                                "_text": "5102"
+                            },
+                            "uCom": {
+                                "_text": "FR"
+                            },
+                            "qCom": {
+                                "_text": "90"
+                            },
+                            "vUnCom": {
+                                "_text": "3.17"
+                            },
+                            "vProd": {
+                                "_text": "285.30"
+                            },
+                            "cEANTrib": {
+                                "_text": "7897947706545"
+                            },
+                            "uTrib": {
+                                "_text": "FR"
+                            },
+                            "qTrib": {
+                                "_text": "90"
+                            },
+                            "vUnTrib": {
+                                "_text": "3.17"
+                            },
+                            "indTot": {
+                                "_text": "1"
+                            },
+                            "rastro": {
+                                "nLote": {
+                                    "_text": "74MM4361"
+                                },
+                                "qLote": {
+                                    "_text": "90.000"
+                                },
+                                "dFab": {
+                                    "_text": "2018-12-01"
+                                },
+                                "dVal": {
+                                    "_text": "2020-11-01"
+                                }
+                            }
+                        },
+                        "imposto": {
+                            "ICMS": {
+                                "ICMS70": {
+                                    "orig": {
+                                        "_text": "0"
+                                    },
+                                    "CST": {
+                                        "_text": "70"
+                                    },
+                                    "modBC": {
+                                        "_text": "0"
+                                    },
+                                    "pRedBC": {
+                                        "_text": "4"
+                                    },
+                                    "vBC": {
+                                        "_text": "134.25"
+                                    },
+                                    "pICMS": {
+                                        "_text": "17.0000"
+                                    },
+                                    "vICMS": {
+                                        "_text": "22.82"
+                                    },
+                                    "modBCST": {
+                                        "_text": "0"
+                                    },
+                                    "pMVAST": {
+                                        "_text": "40.0000"
+                                    },
+                                    "pRedBCST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vBCST": {
+                                        "_text": "187.96"
+                                    },
+                                    "pICMSST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vICMSST": {
+                                        "_text": "9.13"
+                                    }
+                                }
+                            },
+                            "PIS": {
+                                "PISAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pPIS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vPIS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            },
+                            "COFINS": {
+                                "COFINSAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pCOFINS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vCOFINS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            }
+                        },
+                        "infAdProd": {
+                            "_text": "SORO GLICOSADO 05% 500ML (SIST FECHADO) (1510023)| LOTE:74MM4361 FAB: 01-12-2018 / VAL: 01-11-2020|"
+                        }
+                    },
+                    {
+                        "_attributes": {
+                            "nItem": "5"
+                        },
+                        "prod": {
+                            "cProd": {
+                                "_text": "00012088"
+                            },
+                            "cEAN": {
+                                "_text": "7897947706545"
+                            },
+                            "xProd": {
+                                "_text": "SORO GLICOSADO 05% 500ML  SIST FECHADO   1510023"
+                            },
+                            "NCM": {
+                                "_text": "30049099"
+                            },
+                            "CEST": {
+                                "_text": "1300100"
+                            },
+                            "CFOP": {
+                                "_text": "5102"
+                            },
+                            "uCom": {
+                                "_text": "FR"
+                            },
+                            "qCom": {
+                                "_text": "1080"
+                            },
+                            "vUnCom": {
+                                "_text": "3.17"
+                            },
+                            "vProd": {
+                                "_text": "3423.60"
+                            },
+                            "cEANTrib": {
+                                "_text": "7897947706545"
+                            },
+                            "uTrib": {
+                                "_text": "FR"
+                            },
+                            "qTrib": {
+                                "_text": "1080"
+                            },
+                            "vUnTrib": {
+                                "_text": "3.17"
+                            },
+                            "indTot": {
+                                "_text": "1"
+                            },
+                            "rastro": {
+                                "nLote": {
+                                    "_text": "74MM4360"
+                                },
+                                "qLote": {
+                                    "_text": "1080.000"
+                                },
+                                "dFab": {
+                                    "_text": "2018-12-01"
+                                },
+                                "dVal": {
+                                    "_text": "2020-11-01"
+                                }
+                            }
+                        },
+                        "imposto": {
+                            "ICMS": {
+                                "ICMS70": {
+                                    "orig": {
+                                        "_text": "0"
+                                    },
+                                    "CST": {
+                                        "_text": "70"
+                                    },
+                                    "modBC": {
+                                        "_text": "0"
+                                    },
+                                    "pRedBC": {
+                                        "_text": "4"
+                                    },
+                                    "vBC": {
+                                        "_text": "1611.10"
+                                    },
+                                    "pICMS": {
+                                        "_text": "17.0000"
+                                    },
+                                    "vICMS": {
+                                        "_text": "273.88"
+                                    },
+                                    "modBCST": {
+                                        "_text": "0"
+                                    },
+                                    "pMVAST": {
+                                        "_text": "40.0000"
+                                    },
+                                    "pRedBCST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vBCST": {
+                                        "_text": "2255.55"
+                                    },
+                                    "pICMSST": {
+                                        "_text": "4.0000"
+                                    },
+                                    "vICMSST": {
+                                        "_text": "109.56"
+                                    }
+                                }
+                            },
+                            "PIS": {
+                                "PISAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pPIS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vPIS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            },
+                            "COFINS": {
+                                "COFINSAliq": {
+                                    "CST": {
+                                        "_text": "01"
+                                    },
+                                    "vBC": {
+                                        "_text": "0.00"
+                                    },
+                                    "pCOFINS": {
+                                        "_text": "0.0000"
+                                    },
+                                    "vCOFINS": {
+                                        "_text": "0.00"
+                                    }
+                                }
+                            }
+                        },
+                        "infAdProd": {
+                            "_text": "SORO GLICOSADO 05% 500ML (SIST FECHADO) (1510023)| LOTE:74MM4360 FAB: 01-12-2018 / VAL: 01-11-2020|"
+                        }
+                    }
+                ],
+                "total": {
+                    "ICMSTot": {
+                        "vBC": {
+                            "_text": "2292.16"
+                        },
+                        "vICMS": {
+                            "_text": "389.63"
+                        },
+                        "vICMSDeson": {
+                            "_text": "0"
+                        },
+                        "vFCP": {
+                            "_text": "0"
+                        },
+                        "vBCST": {
+                            "_text": "3209.07"
+                        },
+                        "vST": {
+                            "_text": "155.87"
+                        },
+                        "vFCPST": {
+                            "_text": "0"
+                        },
+                        "vFCPSTRet": {
+                            "_text": "0"
+                        },
+                        "vProd": {
+                            "_text": "4870.90"
+                        },
+                        "vFrete": {
+                            "_text": "0"
+                        },
+                        "vSeg": {
+                            "_text": "0"
+                        },
+                        "vDesc": {
+                            "_text": "0"
+                        },
+                        "vII": {
+                            "_text": "0"
+                        },
+                        "vIPI": {
+                            "_text": "0"
+                        },
+                        "vIPIDevol": {
+                            "_text": "0"
+                        },
+                        "vPIS": {
+                            "_text": "0"
+                        },
+                        "vCOFINS": {
+                            "_text": "0"
+                        },
+                        "vOutro": {
+                            "_text": "0"
+                        },
+                        "vNF": {
+                            "_text": "5026.77"
+                        }
+                    }
+                },
+                "transp": {
+                    "modFrete": {
+                        "_text": "1"
+                    },
+                    "transporta": {
+                        "CNPJ": {
+                            "_text": "04949905000163"
+                        },
+                        "xNome": {
+                            "_text": "CLIENTE RETIRA"
+                        },
+                        "IE": {
+                            "_text": "150515782"
+                        },
+                        "xEnder": {
+                            "_text": "R JOAO NUNES DE SOUZA, BR 316 KM 8, 125"
+                        },
+                        "xMun": {
+                            "_text": "ANANINDEUA"
+                        },
+                        "UF": {
+                            "_text": "PA"
+                        }
+                    },
+                    "vol": {
+                        "pesoL": {
+                            "_text": "0.000"
+                        },
+                        "pesoB": {
+                            "_text": "0.000"
+                        }
+                    }
+                },
+                "cobr": {
+                    "fat": {
+                        "nFat": {
+                            "_text": "95658"
+                        },
+                        "vOrig": {
+                            "_text": "5026.77"
+                        },
+                        "vLiq": {
+                            "_text": "5026.77"
+                        }
+                    },
+                    "dup": [
+                        {
+                            "nDup": {
+                                "_text": "001"
+                            },
+                            "dVenc": {
+                                "_text": "2019-05-29"
+                            },
+                            "vDup": {
+                                "_text": "1675.59"
+                            }
+                        },
+                        {
+                            "nDup": {
+                                "_text": "002"
+                            },
+                            "dVenc": {
+                                "_text": "2019-06-13"
+                            },
+                            "vDup": {
+                                "_text": "1675.59"
+                            }
+                        },
+                        {
+                            "nDup": {
+                                "_text": "003"
+                            },
+                            "dVenc": {
+                                "_text": "2019-06-28"
+                            },
+                            "vDup": {
+                                "_text": "1675.59"
+                            }
+                        }
+                    ]
+                },
+                "pag": {
+                    "detPag": {
+                        "tPag": {
+                            "_text": "14"
+                        },
+                        "vPag": {
+                            "_text": "5026.77"
+                        }
+                    }
+                },
+                "infAdic": {
+                    "infCpl": {
+                        "_text": "Venc : 29 05 19  13 06 19  28 06 19 |       Banco do Brasil AG 3399-5 AG : 3399-5 C C : 4345-1 | ICMS PAGO ANTECIPADO ART 207, ANEXO I DO RICMS-PA E REGIME TRIB DIFER N 147 13  |     ICMS RETIDO NA FONTE CONFORME CONVENIO 76 94"
+                    }
+                }
+            },
+            "Signature": {
+                "_attributes": {
+                    "xmlns": "http://www.w3.org/2000/09/xmldsig#"
+                },
+                "SignedInfo": {
+                    "CanonicalizationMethod": {
+                        "_attributes": {
+                            "Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                        }
+                    },
+                    "SignatureMethod": {
+                        "_attributes": {
+                            "Algorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+                        }
+                    },
+                    "Reference": {
+                        "_attributes": {
+                            "URI": "#NFe15190404949905000163550010000956581004640327"
+                        },
+                        "Transforms": {
+                            "Transform": [
+                                {
+                                    "_attributes": {
+                                        "Algorithm": "http://www.w3.org/2000/09/xmldsig#enveloped-signature"
+                                    }
+                                },
+                                {
+                                    "_attributes": {
+                                        "Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                                    }
+                                }
+                            ]
+                        },
+                        "DigestMethod": {
+                            "_attributes": {
+                                "Algorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
+                            }
+                        },
+                        "DigestValue": {
+                            "_text": "h1G1k/RzZT9YNQ52a7LX2Bc1cnE="
+                        }
+                    }
+                },
+                "SignatureValue": {
+                    "_text": "I0LKI7xuarxKa0r4EU7ETzOQtW/FHGtE7+icrdViFctjeeKZ/H7Oh7A/V0u9Itwc6SEbL9B6iXBopaSTJlQo2+u+Lge4hl6C2uS1Us9v/WaahXs9htGern6C2PbaVFKrHQOmkAREUEgzEE95b4V4kGoNrQ3Srdro8C5oiHnsCkz+vKzHGqlXMo2VPMIR7mPw7zBH3qwsv+hSfr5Z0LFJrcDbKO9XwyYcJTTOR0vUGyuy32mEoE5uxyse68fsHtzZseK98y1KTiZ9t3F13Qb6gX4lOhjZ5es/frsty0i+SIsRNFmPF2FCmRGUGfQuBiXGnesbNvrQCFoE9+ZIezCypjU2nh7gE0ODm9YT9zjOqwGiPyILaJXPx2d09UgqZGwUAooZgH8LmhXdng6vEdFt6KJg+l1lb1STU3uZaVWpOpuLL/sI01XE7LtL5OEprSpIxBmvn2Sf0JsLgQZf5+2VX3Vu/Pv8SuIivg/vWFIV4JivQBEOMe690VIq8VauPT57ttPeeMAgpO7tCBmUq0GHDHi+EFObA6wcwGzmGoCXcO/k4pkfUfKoh10SPcAhE4eqrSgRKX0MLF7L2UpsveD7lsTwRyDXkgSC+M1DrfS/EbufZYKqD9wZ6P18F1TjDuWmcvpS9mwRbCfsDuWZMbL5jqBt45R+SkBstXbR7TdCupE="
+                },
+                "KeyInfo": {
+                    "X509Data": {
+                        "X509Certificate": {
+                            "_text": "\n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\nYNfU4wbSI1Bp\n"
+                        }
+                    }
+                }
+            }
+        },
+        "protNFe": {
+            "_attributes": {
+                "versao": "4.00"
+            },
+            "infProt": {
+                "_attributes": {
+                    "Id": "ID415190011723404"
+                },
+                "tpAmb": {
+                    "_text": "1"
+                },
+                "verAplic": {
+                    "_text": "1"
+                },
+                "chNFe": {
+                    "_text": "15190404949905000163550010000956581004640327"
+                },
+                "dhRecbto": {
+                    "_text": "2019-04-29T16:48:40-03:00"
+                },
+                "nProt": {
+                    "_text": "415190011723404"
+                },
+                "digVal": {
+                    "_text": "PRPipvnPs2vY/zc0ADiI8/uObGs="
+                },
+                "cStat": {
+                    "_text": "100"
+                },
+                "xMotivo": {
+                    "_text": "Autorizado o uso da NF-e"
+                }
+            }
+        }
+    }
+}

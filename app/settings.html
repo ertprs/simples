@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="window">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal - Sistema Comercial</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default link">
+                        <span class="icon icon-home span-margin"></span> Início
+                    </a>
+                    <button v-on:click="goToPDV" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        PDV
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        <span class="icon icon-archive span-margin"></span> Vendas
+                    </a>
+                    <a href="products.html" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span> Produtos
+                    </a>
+                    <a href="mainRegisters.html" class="btn btn-default link">
+                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    </a>
+                    <a href="mainNotes.html" class="btn btn-default link">
+                        <span class="icon icon-docs span-margin"></span> Notas
+                    </a>
+                    <a href="support.html" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    </a>
+                    <a href="reports.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    </a>
+                    <a href="manual.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Manual
+                    </a>
+                    <a href="settings.html" class="btn btn-default link">
+                        <span class="icon icon-cog span-margin"></span> Configurações
+                    </a>
+                    <a href="shortcuts.html" class="btn btn-default link">
+                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    </a>
+                    <button v-if="registered==false" v-on:click="currentTab = tabs.register"
+                        class="btn btn-negative link">
+                        <span class="icon icon-lock-open span-margin"></span>
+                        Registrar
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane">
+                    <span class="nav-group-item" style="padding-top: 20px;">
+                        <span class="icon icon-print"></span>
+                        <a style="text-decoration: none; color: black" @click="testPrinter()">
+                            Testar Impressão
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-flashlight"></span>
+                        <a style="text-decoration: none; color: black" @click="updateDebug(debug)">
+                            Debug {{debug.debug}}
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-print"></span>
+                        <a style="text-decoration: none; color: black" @click="updatePrinter(printer)">
+                            Printer {{printer.printer}}
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-camera"></span>
+                        <a style="text-decoration: none; color: black" @click="updateLogoFile">
+                            Escolher/Alterar Logomarca
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-newspaper"></span>
+                        <a style="text-decoration: none; color: black" @click="testEnginePython">
+                            Testar Engine Python
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-download"></span>
+                        <a style="text-decoration: none; color: black" @click="updateFileCertificate">
+                            Importar Certificado
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-download"></span>
+                        <a style="text-decoration: none; color: black" @click="updateFileCertificatePublic">
+                            Importar Chave Pública
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-flash"></span>
+                        <a style="text-decoration: none; color: black" @click="exportDbProducts">
+                            Exportar Banco de Dados de Produtos
+                        </a>
+                    </span>
+                    <span class="nav-group-item">
+                        <span class="icon icon-flash"></span>
+                        <a style="text-decoration: none; color: black" @click="verifyServiceSefaz">
+                            Verificar Status do Serviço
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="scripts/screens/settings/settings.js"></script>
+</body>
+
+</html>

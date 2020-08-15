@@ -1,0 +1,122 @@
+#body{
+    background-color: #428bca;
+}
+
+#container{
+    padding: 30px;
+}
+
+#menu{
+    border-bottom: 0px solid #d7d7d7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#titleinner{
+    margin-top: 0px; 
+    font-weight: bold; 
+    text-align:center;
+    padding-top: 10px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+#titlemain{
+    margin-top: 0px; 
+    font-weight: bold; 
+    text-align:center;
+    padding-top: 10px;
+    border-bottom: 1px solid #d7d7d7;
+    color: white;
+}
+
+#nav-second{
+    padding-top: 0px;
+    background-color:white;
+    color: #428bca;
+    border-radius: 10px;
+}
+
+.title{
+    background-color: #054F9A; 
+    margin: 0px;
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.sizeField{
+    height: 50px; 
+    font-size: 30px; 
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+.sizeFieldTotal{
+    height: 70px; 
+    font-size: 50px; 
+    font-weight: bold;
+    border-radius: 0px;
+    text-align: right;
+    color: red;
+}
+
+.sizeDiscountTotalFields{
+    height: 50px; 
+    font-size: 30px; 
+    font-weight: bold;
+    border-radius: 0px;
+    text-align: left;
+}
+
+.sizeDiscountTotalFieldsTypePay{
+    height: 40px; 
+    font-size: 20px; 
+    font-weight: bold;
+    border-radius: 0px;
+    text-align: left;
+}
+
+#produtoscontainer{
+  padding-bottom: 10px;
+}
+
+#descriptioncontainer{
+    background-color: #f5f5f5;
+}
+
+#descriptioncontainercupon{
+    background-color: #FFFED0;
+}
+
+#descriptioncontainer2{
+    padding-top: 15px;
+    background-color: #5da3de;
+}
+
+.colortable{
+    background-color: white;
+}
+
+#price{
+    color: red;
+    font-weight: bold;
+}
+
+#description{
+    background-color: #f2dede;
+    margin-top: 0px; 
+    padding: 5px;
+    font-weight: bold;
+}
+
+#logo{
+    min-height: 150px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#footer{
+    background-color: white;
+    border-radius: 10px;
+}

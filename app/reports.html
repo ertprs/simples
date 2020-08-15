@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal - Sistema Comercial</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default link">
+                        <span class="icon icon-home span-margin"></span> Início
+                    </a>
+                    <button v-on:click="goToPDV" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        PDV
+                    </button>
+                    <a href="sales.html" class="btn btn-default link">
+                        <span class="icon icon-archive span-margin"></span> Vendas
+                    </a>
+                    <a href="products.html" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span> Produtos
+                    </a>
+                    <a href="mainRegisters.html" class="btn btn-default link">
+                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    </a>
+                    <a href="mainNotes.html" class="btn btn-default link">
+                        <span class="icon icon-docs span-margin"></span> Notas
+                    </a>
+                    <a href="support.html" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    </a>
+                    <a href="reports.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    </a>
+                    <a href="manual.html" class="btn btn-default link">
+                        <span class="icon icon-book-open span-margin"></span> Manual
+                    </a>
+                    <a href="settings.html" class="btn btn-default link">
+                        <span class="icon icon-cog span-margin"></span> Configurações
+                    </a>
+                    <a href="shortcuts.html" class="btn btn-default link">
+                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    </a>
+                    <button v-if="registered==false" v-on:click="currentTab = tabs.register"
+                        class="btn btn-negative link">
+                        <span class="icon icon-lock-open span-margin"></span>
+                        Registrar
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="window-content" style="background-color: #f5f5f4">
+            <div class="pane-group">
+                <div class="pane">
+                    <div class="form-group" style="padding:10px; width: 250px;">
+                        <p style="margin-top: 0px"><b>Relatório de Vendas</b></p>
+                        <input type="text" class="form-control" v-model="forms.sales.data" placeholder="DD-MM-YYYY">
+                        <button class="btn btn-default btn-block" @click="generateSalesReport()"
+                            style="margin-top: 10px;">Gerar
+                            Relatório</button>
+                    </div>
+                    <div class="form-group" style="padding:10px; width: 250px;">
+                        <p style="margin-top: 0px;"><b>Relatório de Clientes</b></p>
+                        <input type="text" class="form-control" v-model="forms.clients.data" placeholder="DD-MM-YYYY">
+                        <button class="btn btn-default btn-block" @click="generateClientsReport()"
+                            style="margin-top: 10px;">Gerar
+                            Relatório</button>
+                    </div>
+                    <div class="form-group" style="padding:10px; width: 250px;">
+                        <p style="margin-top: 0px;"><b>Relatório de Produtos</b></p>
+                        <input type="text" class="form-control" v-model="forms.products.data" placeholder="DD-MM-YYYY">
+                        <button class="btn btn-default btn-block" @click="generateProductsReport()"
+                            style="margin-top: 10px;">Gerar
+                            Relatório</button>
+                    </div>
+                    <div class="form-group" style="padding:10px; width: 250px;">
+                        <p style="margin-top: 0px;"><b>Relatório de Fornecedores</b></p>
+                        <input type="text" class="form-control" v-model="forms.outfiters.data" placeholder="DD-MM-YYYY">
+                        <button class="btn btn-default btn-block" @click="generateOutfitersReport()"
+                            style="margin-top: 10px;">Gerar
+                            Relatório</button>
+                    </div>
+                </div>
+                <div class="pane">
+                    <div class="form-group" style="padding:10px; width: 250px;">
+                        <p style="margin-top: 0px;"><b>Relatório de Fabricantes</b></p>
+                        <input type="text" class="form-control" v-model="forms.producers.data" placeholder="DD-MM-YYYY">
+                        <button class="btn btn-default btn-block" @click="generateProducersReport()"
+                            style="margin-top: 10px;">Gerar
+                            Relatório</button>
+                    </div>
+                </div>
+                <div class="pane">
+                </div>
+                <div class="pane">
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="scripts/screens/reports/reports.js"></script>
+</body>
+
+</html>

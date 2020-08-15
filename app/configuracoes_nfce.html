@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables/dataTables.bootstrap.css">
+</head>
+
+<body>
+    <div class="window">
+        <header class="toolbar toolbar-header">
+            <p class="title" style="padding: 5px; font-size: 14px">Configurações NFC-e</p>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <a href="main2.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-home" style="margin-right: 3px"></span>
+                        Home
+                    </a>
+                    <a href="pdv.html" v-if="fiscal.fiscal==true" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-basket" style="margin-right: 3px"></span>
+                        PDV
+                    </a>
+                    <a href="pdv_nao_fiscal.html" v-else class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-basket" style="margin-right: 3px"></span>
+                        PDV
+                    </a>
+                    <a href="vendas.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-book-open" style="margin-right: 3px"></span>
+                        Vendas
+                    </a>
+                    <a href="relatorios.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-book-open" style="margin-right: 3px"></span>
+                        Relatórios
+                    </a>
+                    <a href="configuracoes.html" class="btn btn-default" v-bind:class="{'link': link}">
+                        <span class="icon icon-tools" style="margin-right: 3px"></span>
+                        Configurações
+                    </a>
+                </div>
+                <span class="pull-right" v-bind:class="{'link': link}">
+                    <span class="icon icon-user" style="margin-right: 3px"></span>
+                    {{rootus.user}}
+                </span>
+            </div>
+        </header>
+        <div class="window-content" style="background-color: #f5f5f4">
+            <div class="pane-group">
+                <div class="pane">
+                    <div class="tabbable" id="tabs-315662">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a style="border-radius: 0px" href="#panel-34198" data-toggle="tab"
+                                    id="tab_border">Assinatura</a>
+                            </li>
+                            <li>
+                                <a style="border-radius: 0px" href="#panel-470049" data-toggle="tab"
+                                    id="tab_border">Cartão de Crédito</a>
+                            </li>
+                            <li>
+                                <a style="border-radius: 0px" href="#panel-470044" data-toggle="tab"
+                                    id="tab_border">Série da Nota</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="panel-34198">
+                                <div class="base">
+                                    <div class="row" style="padding: 10px">
+                                        <div class="col-md-12" style="margin-top:0px">
+                                            <table class="table table-hover table-striped table-bordered"
+                                                id="font-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Ambiente</th>
+                                                        <th>CanonicalizationMethod</th>
+                                                        <th>SignatureMethod</th>
+                                                        <th>Transform1</th>
+                                                        <th>Transform2</th>
+                                                        <th>SignatureValue</th>
+                                                        <th>Certificado</th>
+                                                        <th>Editar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="(index, config_nfce) in config_nfces">
+                                                        <td>
+                                                            <p>(1 para produção - 2 para homologação)</p>
+                                                            {{config_nfce.geral[index].ambiente}}
+                                                        </td>
+                                                        <td>
+                                                            <pre>{{config_nfce.signature[index].CanonicalizationMethod}}</pre>
+                                                        </td>
+                                                        <td>
+                                                            <pre>{{config_nfce.signature[index].SignatureMethod}}</pre>
+                                                        </td>
+                                                        <td>
+                                                            <pre>{{config_nfce.signature[index].Transform1}}</pre>
+                                                        </td>
+                                                        <td>
+                                                            <pre>{{config_nfce.signature[index].Transform2}}</pre>
+                                                        </td>
+                                                        <td>
+                                                            <pre>{{config_nfce.signature[index].SignatureValue}}</pre>
+                                                        </td>
+                                                        <td>
+                                                            <pre>{{config_nfce.signature[index].X509Certificate}}</pre>
+                                                        </td>
+                                                        <td>
+                                                            <button @click="editConfigNfce(config_nfce)"
+                                                                id="font-button"
+                                                                class="btn btn-large btn-primary">Editar</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="panel-470049">
+                                <div class="base">
+                                    <div class="row" style="padding: 10px">
+                                        <div class="col-md-12" style="margin-top:0px">
+                                            <table class="table table-hover table-striped table-bordered" id="produtos">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tipo de Integração</th>
+                                                        <th>Editar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="config in config_nfces">
+                                                        <td>{{config.cartao_credito[0].tpIntegra}}</td>
+                                                        <td>
+                                                            <button @click="editTypeIntegration(config)"
+                                                                id="font-button"
+                                                                class="btn btn-large btn-primary">Editar</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="panel-470044">
+                                <div class="base">
+                                    <div class="row" style="padding: 10px">
+                                        <div class="col-md-12" style="margin-top:0px">
+                                            <table class="table table-hover table-striped table-bordered" id="produtos">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Série da Nota</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="config in config_nfces">
+                                                        <td>{{config.geral[0].serie}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" v-if="debug.debug==true">
+                        <div class="col-md-12" style="padding: 0px">
+                            <div style="padding: 20px; background-color: black; color: white">
+                                <h1 style="color: white">Debug</h1>
+                                <pre
+                                    style="background-color: black; color: white;border: 0px">{{$data.config_nfces | json}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <div id="modal" v-if="openModal">
+        <div class="wrap">
+            <form id="cadastro-clientes" class="pane-body">
+                <h3 v-if="mode=='cadastro'" style="text-align: center">
+                    <strong>Configurar NFC-E</strong>
+                </h3>
+                <h3 v-if="mode=='edicao'" style="text-align: center">
+                    <strong>Editar Configuração da NFC-E</strong>
+                </h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Assinatura</h3>
+                        <div class="form-group">
+                            <label>CanonicalizationMethod</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                    v-model="config_nfce.signature[0].CanonicalizationMethod"
+                                    placeholder="CanonicalizationMethod*" style="border-color: red">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>SignatureMethod</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                    v-model="config_nfce.signature[0].SignatureMethod" placeholder="SignatureMethod*"
+                                    style="border-color: red">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Transform1</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" v-model="config_nfce.signature[0].Transform1"
+                                    placeholder="Transform1*" style="border-color: red">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Transform2</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" v-model="config_nfce.signature[0].Transform2"
+                                    placeholder="Transform2*" style="border-color: red">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>SignatureValue</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                    v-model="config_nfce.signature[0].SignatureValue" placeholder="SignatureValue*"
+                                    style="border-color: red">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>X509Certificate</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                    v-model="config_nfce.signature[0].X509Certificate" placeholder="X509Certificate*"
+                                    style="border-color: red">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Gerais</h3>
+                        <div class="form-group">
+                            <label>Ambiente(1 para produção - 2 para homologação)</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" v-model="config_nfce.geral[0].ambiente"
+                                    placeholder="Homologação*" style="border-color: red">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-large btn-danger" @click="openModal=false">Fechar</button>
+                    <button type="button" class="btn btn-large btn-primary" @click="configNfceUpdate()">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal" v-if="openModal2">
+        <div class="wrap">
+            <form id="cadastro-clientes" class="pane-body">
+                <h3 v-if="mode=='cadastro'" style="text-align: center">
+                    <strong>Configurar NFC-E</strong>
+                </h3>
+                <h3 v-if="mode=='edicao'" style="text-align: center">
+                    <strong>Editar Configuração da NFC-E</strong>
+                </h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Tipo de Integração do Cartão</h3>
+                        <div class="form-group">
+                            <label>Tipo de Integração</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                    v-model="config_nfce.cartao_credito[0].tpIntegra" placeholder="Tipo de Integração*"
+                                    style="border-color: red">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-large btn-danger" @click="openModal2=false">Fechar</button>
+                    <button type="button" class="btn btn-large btn-primary" @click="configNfceUpdate()">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="scripts/screens/configuracoes_nfce/configuracoes_nfce.js"></script>
+</body>
+
+</html>

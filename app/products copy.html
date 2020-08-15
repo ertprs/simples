@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Equal 0.0.1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
+</head>
+
+<body>
+    <div class="window" id="main">
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Equal Community - Sistema Comercial - Produtos</h1>
+            <div class="toolbar-actions">
+                <div class="btn-group">
+                    <button @click="createProduct()" class="btn btn-default link">
+                        <span class="icon icon-plus-squared span-margin"></span>
+                        Novo Produto
+                    </button>
+                    <button @click="reload()" class="btn btn-default link">
+                        <span class="icon icon-basket span-margin"></span>
+                        Produtos
+                    </button>
+                    <button @click="close()" class="btn btn-default link">
+                        <span class="icon icon-cancel-squared span-margin"></span>
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="window-content" style="background-color: #f5f5f4">
+            <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+                <div class="pane space">
+                    <div class="preloader">
+                        <img src="images/Infinity-1s-200px.gif" />
+                    </div>
+                </div>
+            </div>
+            <div class="pane-group">
+                <div class="pane-sm sidebar" style="background-color: #edebed;" v-if="menu==true">
+                    <nav class="nav-group">
+                        <h5 class="nav-group-title">Itens</h5>
+                        <span class="nav-group-item" @click="openPriceDetails">
+                            <span class="icon icon-level-down"></span>
+                            Detalhes do Preço
+                        </span>
+                        <span class="nav-group-item">
+                            <span class="icon icon-level-down"></span>
+                            Tributos
+                        </span>
+                        <span class="nav-group-item">
+                            <span class="icon icon-level-down"></span>
+                            Estoque
+                        </span>
+                        <span class="nav-group-item">
+                            <span class="icon icon-level-down"></span>
+                            Fotos
+                        </span>
+                    </nav>
+                </div>
+                <div class="pane space" v-if="tabelaProdutos==true">
+                    <table class="display" style="width:100%" id="produtos">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Código de Barras</th>
+                                <th>DESCRIÇÃO DO PRODUTO / SERVIÇO</th>
+                                <th>Quantidade</th>
+                                <th>VALOR UNIT</th>
+                                <th>Editar/Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="produtoV2 in produtosV2">
+                                <td>{{produtoV2.codigo}}</td>
+                                <td>{{produtoV2.codigo_barras}}</td>
+                                <td>{{produtoV2.nome}}</td>
+                                <td>{{produtoV2.quantidade}}</td>
+                                <td>R$ {{produtoV2.preco_compra}}</td>
+                                <td>
+                                    <button @click="editProduct(produtoV2)" id="font-button"
+                                        class="btn btn-large btn-default">Editar</button>
+                                    <button @click="remove(produtoV2)" id="font-button"
+                                        class="btn btn-large btn-default">Deletar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pane space" v-if="produtoGeral==true">
+                    <div class="position">
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.codigo" placeholder="Código">
+                            </div>
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.codigo_barras"
+                                    placeholder="Código de Barra">
+                            </div>
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.referencia"
+                                    placeholder="Referência">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <select class="form-control" v-model="produtoV2.unidade.nome">
+                                    <option value="">Unidade</option>
+                                    <option value="{{unidade.descricao}}" v-for="unidade in unidades">
+                                        {{unidade.descricao}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.nome" placeholder="Nome">
+                            </div>
+                            <div id="box-3" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.descricao"
+                                    placeholder="Descrição">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.tipo_produto"
+                                    placeholder="Tipo">
+                            </div>
+                            <div id="box-2" class="box">
+                                <select v-model="produtoV2.fornecedor.nome" class="form-control"
+                                    v-model="produtoV2.fornecedor.nome">
+                                    <option value="{{produtoV2.fornecedor.nome}}" selected>{{produtoV2.fornecedor.nome}}
+                                    </option>
+                                    <option value="{{f.nome}}" v-for="f in fornecedoresV2">{{f.nome}}</option>
+                                </select>
+                            </div>
+                            <div id="box-3" class="box">
+                                <select v-model="produtoV2.fabricante.nome" class="form-control"
+                                    v-model="produtoV2.fabricante.nome">
+                                    <option value="{{produtoV2.fabricante.nome}}" selected>{{produtoV2.fabricante.nome}}
+                                    </option>
+                                    <option value="{{f.nome}}" v-for="f in fabricantesV2">{{f.nome}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <select class="form-control" v-model="produtoV2.ncm.codigo">
+                                    <option v-if="produtoV2.ncm.codigo" value="{{produtoV2.ncm.codigo}}" selected>
+                                        {{produtoV2.ncm.codigo}}</option>
+                                    <option v-else value="" selected>Selecione o NCM</option>
+                                    <option value="{{ncm.codigo}}" v-for="ncm in ncms">{{ncm.codigo}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div id="box-2" class="box">
+                                <select class="form-control" v-model="produtoV2.cfopSaida.codigocfop">
+                                    <option v-if="produtoV2.cfopSaida.codigocfop"
+                                        value="{{produtoV2.cfopSaida.codigocfop}}" selected>
+                                        {{produtoV2.cfopSaida.codigocfop}}</option>
+                                    <option v-else value="" selected>Selecione o CFOP</option>
+                                    <option value="{{cfop.codigocfop}}" v-for="cfop in cfops">{{cfop.codigocfop}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div id="box-3" class="box">
+                                <select class="form-control" v-model="produtoV2.cst.codigotributario">
+                                    <option v-if="produtoV2.cst.codigotributario"
+                                        value="{{produtoV2.cst.codigotributario}}" selected>
+                                        {{produtoV2.cst.codigotributario}}</option>
+                                    <!-- <option v-else value="" selected>Selecione o CST</option>
+                                    <option value="{{cst.codigotributario}}" v-for="cst in csts">
+                                        {{cst.codigotributario}} - {{cst.descricao}}
+                                    </option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="box-line">
+                                <div class="box-line-inner-little">
+                                    <input type="text" class="form-control" v-model="produtoV2.preco_compra"
+                                        placeholder="Preço de Venda">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.quantidade"
+                                    placeholder="Quantidade">
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.margem_lucro"
+                                    placeholder="Porcentagem de Lucro">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="client.complemento"
+                                    placeholder="Complemento">
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control" v-model="client.apelido" placeholder="Apelido">
+                            </div>
+                            <div id="box-3" class="box">
+                                <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
+                                    <option v-if="client.estado_civil" value="{{client.estado_civil}}" selected>
+                                        {{client.estado_civil}}</option>
+                                    <option v-else value="" selected>Estado Civil</option>
+                                    <option value="solteiro(a)">Solteiro(a)</option>
+                                    <option value="casado(a)">Casado(a)</option>
+                                    <option value="viuvo(a)">Viúvo(a)</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="box-line">
+                                <div class="box-line-inner-little">
+                                    <select name="mes" class="form-control" required="true" v-model="client.sexo">
+                                        <option v-if="client.sexo" value="{{client.sexo}}" selected>
+                                            {{client.sexo}}</option>
+                                        <option v-else value="" selected>Sexo</option>
+                                        <option value="masculino">Masculino(a)</option>
+                                        <option value="feminino">Feminino(a)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <select class="form-control" v-model="client.uf">
+                                    <option v-if="client.uf" value="{{client.uf}}" selected>
+                                        {{client.uf}}</option>
+                                    <option v-else value="" selected>Estado*</option>
+                                    <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
+                                </select>
+                            </div>
+                            <div id="box-2" class="box">
+                                <select class="form-control" v-model="client.municipio">
+                                    <option v-if="client.municipio" value="{{client.municipio}}" selected>
+                                        {{client.municipio}}</option>
+                                    <option v-else value="" selected>Município*</option>
+                                    <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <div class="box-line">
+                                <button type="button" class="btn btn-mini btn-default"
+                                    @click="closeModal">Fechar</button>
+                                <button type="button" class="btn btn-mini btn-default"
+                                    @click="productStoreOrUpdate()">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DETALHES DO PREÇO -->
+                <div class="pane space" v-if="detalhesPreco==true">
+                    <div class="position">
+                        <div class="form-group">
+                            <div class="box-with-label">
+                                <label>Preço de Compra</label>
+                                <input type="text" class="form-control" v-model="produtoV2.codigo"
+                                    placeholder="Preço de Compra(IPI%)">
+                            </div>
+                            <div class="box-with-label">
+                                <label>Valor do Frete</label>
+                                <input type="text" class="form-control" v-model="produtoV2.codigo_barras"
+                                    placeholder="Valor do Frete">
+                            </div>
+                            <div class="box-with-label">
+                                <label>Custo</label>
+                                <input type="text" class="form-control" v-model="produtoV2.referencia"
+                                    placeholder="Custo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TRIBUTOS -->
+                <div class="pane space" v-if="detalhesPreco==true">
+                    <div class="position">
+                        <div class="form-group">
+                            <div class="box-text">
+                                <h5><strong>ICMS</strong></h5>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.icms.vICMSSaida"
+                                    placeholder="ICMS Saída">
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.icms.reducaoBaseCalculoSaida"
+                                    placeholder="Redução Base de Cálculo">
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.icms.observacao"
+                                    placeholder="Observação">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.icms.vICMSEntrada"
+                                    placeholder="ICMS de Entrada">
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control"
+                                    v-model="produtoV2.icms.reducaoBaseCalculoEntrada"
+                                    placeholder="Redução Base de Cálculo">
+                            </div>
+                            <div id="box-2" class="box">
+                                <input type="text" class="form-control" v-model="produtoV2.icms.FCP" placeholder="FCP">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="box-text">
+                                <h5><strong>PIS</strong></h5>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <select class="form-control" v-model="produtoV2.pisEntrada.CST">
+                                    <option v-if="produtoV2.pisEntrada.CST" value="{{produtoV2.pisEntrada.CST}}"
+                                        selected>
+                                        {{produtoV2.pisEntrada.CST}}</option>
+                                    <option v-else value="" selected>Selecione o PIS de entrada</option>
+                                    <option value="{{p.codigo}}" v-for="p in pis">{{p.descricao}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div id="box-2" class="box">
+                                <select class="form-control" v-model="produtoV2.pisSaida.CST">
+                                    <option v-if="produtoV2.pisSaida.CST" value="{{produtoV2.pisSaida.CST}}" selected>
+                                        {{produtoV2.pisSaida.descricao}}</option>
+                                    <option v-else value="" selected>Selecione o PIS de saída</option>
+                                    <option value="{{p.codigo}}" v-for="p in pis">{{p.descricao}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="box-text">
+                                <h5><strong>COFINS</strong></h5>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="box-1" class="box">
+                                <select class="form-control" v-model="produtoV2.confinsEntrada.CST">
+                                    <option v-if="produtoV2.confinsEntrada.CST" value="{{produtoV2.confinsEntrada.CST}}"
+                                        selected>
+                                        {{produtoV2.confinsEntrada.CST}}</option>
+                                    <option v-else value="" selected>Selecione o COFINS de entrada</option>
+                                    <option value="{{c.codigo}}" v-for="c in cofins">{{c.descricao}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div id="box-2" class="box">
+                                <select class="form-control" v-model="produtoV2.confinsSaida.CST">
+                                    <option v-if="produtoV2.confinsSaida.CST" value="{{produtoV2.confinsSaida.CST}}"
+                                        selected>
+                                        {{produtoV2.confinsSaida.descricao}}</option>
+                                    <option v-else value="" selected>Selecione o COFINS de saída</option>
+                                    <option value="{{c.codigo}}" v-for="c in cofins">{{c.descricao}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <span>SEMPRE EVOLUINDO!</span>
+                <span>SEMPRE EVOLUINDO!</span>
+            </div>
+        </footer>
+    </div>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="datatables11020/datatables.min.js"></script>
+    <script src="scripts/screens/products/datatableset.js"></script>
+    <script src="vue/vue.min.js"></script>
+    <script src="scripts/screens/products/products.js"></script>
+</body>
+
+</html>

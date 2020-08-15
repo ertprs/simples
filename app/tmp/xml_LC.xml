@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc versao="3.10" 
+    xmlns="http://www.portalfiscal.inf.br/nfe">
+    <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+        <infNFe Id="NFe15180412447516000168650010000003219100003217" versao="3.10">
+            <ide>
+                <cUF>15</cUF>
+                <cNF>10000321</cNF>
+                <natOp>VENDA PDV NFC-e</natOp>
+                <indPag>0</indPag>
+                <mod>65</mod>
+                <serie>1</serie>
+                <nNF>321</nNF>
+                <dhEmi>2018-04-04T19:17:25-03:00</dhEmi>
+                <tpNF>1</tpNF>
+                <idDest>1</idDest>
+                <cMunFG>1501709</cMunFG>
+                <tpImp>4</tpImp>
+                <tpEmis>9</tpEmis>
+                <cDV>7</cDV>
+                <tpAmb>1</tpAmb>
+                <finNFe>1</finNFe>
+                <indFinal>1</indFinal>
+                <indPres>1</indPres>
+                <procEmi>0</procEmi>
+                <verProc>LCV1.0.9</verProc>
+                <dhCont>2018-04-04T19:17:25-03:00</dhCont>
+                <xJust>FALTA DE INTERNET</xJust>
+            </ide>
+            <emit>
+                <CNPJ>12447516000168</CNPJ>
+                <xNome>N A ALMEIDA ME</xNome>
+                <xFant>IDEAL FARMA</xFant>
+                <enderEmit>
+                    <xLgr>AVE NAZEAZENO FERREIRA</xLgr>
+                    <nro>888</nro>
+                    <xBairro>PERPETUO SOCORRO</xBairro>
+                    <cMun>1501709</cMun>
+                    <xMun>BRAGANCA</xMun>
+                    <UF>PA</UF>
+                    <CEP>68600000</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                    <fone>9134253577</fone>
+                </enderEmit>
+                <IE>153104830</IE>
+                <CRT>1</CRT>
+            </emit>
+            <det nItem="1">
+                <prod>
+                    <cProd>107717</cProd>
+                    <cEAN>7891317432362</cEAN>
+                    <xProd>MUSCULARE 10MG 15CPR</xProd>
+                    <NCM>30049099</NCM>
+                    <CEST>0000000</CEST>
+                    <CFOP>5102</CFOP>
+                    <uCom>UN</uCom>
+                    <qCom>1.0000</qCom>
+                    <vUnCom>15.4500</vUnCom>
+                    <vProd>15.45</vProd>
+                    <cEANTrib>7891317432362</cEANTrib>
+                    <uTrib>UN</uTrib>
+                    <qTrib>1.0000</qTrib>
+                    <vUnTrib>15.4500</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <vTotTrib>0.00</vTotTrib>
+                    <ICMS>
+                        <ICMSSN102>
+                            <orig>0</orig>
+                            <CSOSN>102</CSOSN>
+                        </ICMSSN102>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>07</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>07</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <total>
+                <ICMSTot>
+                    <vBC>0.00</vBC>
+                    <vICMS>0.00</vICMS>
+                    <vICMSDeson>0.00</vICMSDeson>
+                    <vBCST>0.00</vBCST>
+                    <vST>0.00</vST>
+                    <vProd>15.45</vProd>
+                    <vFrete>0.00</vFrete>
+                    <vSeg>0.00</vSeg>
+                    <vDesc>0.00</vDesc>
+                    <vII>0.00</vII>
+                    <vIPI>0.00</vIPI>
+                    <vPIS>0.00</vPIS>
+                    <vCOFINS>0.00</vCOFINS>
+                    <vOutro>0.00</vOutro>
+                    <vNF>15.45</vNF>
+                    <vTotTrib>0.00</vTotTrib>
+                </ICMSTot>
+            </total>
+            <transp>
+                <modFrete>9</modFrete>
+            </transp>
+            <pag>
+                <tPag>01</tPag>
+                <vPag>15.45</vPag>
+            </pag>
+            <infAdic>
+                <infCpl>AGRADECEMOS A PREFERENCIA</infCpl>
+            </infAdic>
+        </infNFe>
+        <infNFeSupl>
+            <qrCode><![CDATA[https://appnfc.sefa.pa.gov.br/portal/view/consultas/nfce/nfceForm.seam?chNFe=15180412447516000168650010000003219100003217&nVersao=100&tpAmb=1&dhEmi=323031382d30342d30345431393a31373a32352d30333a3030&vNF=15.45&vICMS=0.00&digVal=454b36494638376c424e6a614848774b5459547255416f792f37493d&cIdToken=000001&cHashQRCode=6E9585B2C912A52B4FCE8BDD652AEEF5C43C3178]]></qrCode>
+        </infNFeSupl>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <Reference URI="#NFe15180412447516000168650010000003219100003217">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <DigestValue>EK6IF87lBNjaHHwKTYTrUAoy/7I=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>XTF8+Zp8FJaUI5US5N+B1PxShmCav23Hifp9/CUIYz2lAiO35K0g5BLh0i3zyX+h7jX4GOXC87oywdzsyCrHYv5B8oYcJTDD34Q3QZW4/3zFQ/O9XtzjsgbNWxH/belXJyy6o2k9iqCLcplI1JRbyd1eTath4QijX6++oktzG6TT7wDMmoJYg7Qk3bPO+FeOEgz6pR6Z45CTbi/EZgs5gyrlxuVoflmynPZnNeEVPj74qmYdqbBj8FrYz/HzLwNZgF3vkFxCTOVuAUNAWBfnhLKinErBobai+iNnWPGbqG4tVGL76q+OSwWe5S48e/N+3d/Pgmnu3MTE8S/J8aT2SQ==</SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>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</X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+    </NFe>
+    <protNFe xmlns="http://www.portalfiscal.inf.br/nfe" versao="3.10">
+        <infProt>
+            <tpAmb>1</tpAmb>
+            <verAplic>SVRSnfce201802051656</verAplic>
+            <chNFe>15180412447516000168650010000003219100003217</chNFe>
+            <dhRecbto>2018-05-08T08:34:59-03:00</dhRecbto>
+            <nProt>315180149499389</nProt>
+            <digVal>EK6IF87lBNjaHHwKTYTrUAoy/7I=</digVal>
+            <cStat>150</cStat>
+            <xMotivo>Autorizado o uso da NF-e, autorizacao fora de prazo</xMotivo>
+        </infProt>
+    </protNFe>
+</nfeProc>

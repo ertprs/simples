@@ -1,0 +1,137 @@
+.span-margin {
+    margin-right: 3px;
+}
+
+.link {
+    text-decoration: none;
+    padding: 10px;
+}
+
+#central-image {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+}
+
+#central-image img {
+    margin-top: 100px;
+    margin-left: -4.8%;
+    max-width: 500px;
+}
+
+.pane-spanded {
+    padding: 10px;
+}
+
+.title-h3 {
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.text {
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+.space{
+    padding: 10px;
+}
+
+.box {
+    float: left;
+    width: 300px; height: 20px;
+    margin: 10px 20px;
+}
+
+.box-with-label {
+    float: left;
+    width: 300px; height: 50px;
+    margin: 10px 20px;
+}
+
+.box-line {
+    float: left;
+    width: 100%; height: 20px;
+    margin: 10px 20px;
+}
+
+.box-bleeds {
+    float: left;
+    width: 300px; height: 20px;
+    margin: 10px 20px 20px 0px;
+}
+
+.box-bleeds-inner {
+    float: left;
+    width: 180px;
+}
+
+.box-bleeds-inner-button {
+    padding: 4px;
+    float: left;
+    width: 100px;
+}
+
+.box-supplement {
+    float: left;
+    width: 300px; height: 20px;
+    margin: 10px 20px 20px 0px;
+}
+
+.box-supplement-inner {
+    float: left;
+    width: 180px;
+}
+
+.box-supplement-inner-button {
+    padding: 4px;
+    float: left;
+    width: 100px;
+}
+
+.box-line-inner {
+    float: left;
+    width: 640px;
+}
+
+.box-line-inner-little {
+    float: left;
+    width: 300px;
+}
+
+.position {
+    margin-left: 6%;
+}
+
+#buttons-space{
+    width: 100%;
+}
+
+.box-text{
+    float: left;
+    width: 100%;
+    padding:5px 5px 5px 22.5px
+}
+
+.info{
+    padding: 10px;
+    font-weight: normal;
+    color: red;
+    float: right;
+}
+
+.form{
+    width: 400px;
+}
+
+.preloader {
+    width: 100%;
+    max-width: 270px;
+    padding: 15px;
+    margin: auto;
+  }
+
+  .preloader img{
+    padding-top: 70px;
+  }

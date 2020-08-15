@@ -1,0 +1,53 @@
+{
+  "name": "Colibri 1.0.0",
+  "version": "1.0.0",
+  "description": "Equal Community - Sistema Comercial",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Hugo Porto",
+  "license": "Copyright",
+  "devDependencies": {
+    "electron-rebuild": "^1.8.5",
+    "electron-wix-msi": "^2.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "electron": "^4.0.4",
+    "electron-osx-prompt": "^1.4.1",
+    "electron-pdf-window": "^1.0.12",
+    "electron-prompt": "^1.4.0",
+    "fetch": "^1.1.0",
+    "file-exists": "^5.0.1",
+    "html-pdf": "^2.2.0",
+    "image-to-base64": "^2.0.1",
+    "lokijs": "^1.5.5",
+    "moment": "^2.24.0",
+    "mousetrap": "^1.6.3",
+    "mysql": "^2.16.0",
+    "node-fetch": "^2.3.0",
+    "node-forge": "^0.9.1",
+    "pdf-to-printer": "0.0.2",
+    "phantomjs": "^2.1.7",
+    "printer": "^0.2.2",
+    "python-shell": "^1.0.8",
+    "qrcode": "^1.4.1",
+    "read-file-utf8": "^1.1.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "sha1": "^1.1.1",
+    "sha1-hex": "^1.0.0",
+    "string-hex": "^1.0.0",
+    "vue": "^1.0.28",
+    "xml-crypto": "^1.4.0",
+    "xml-js": "^1.6.11"
+  }
+}

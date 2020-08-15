@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Equal 0.0.1</title>
+    <link href="bootstrap336/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/frente_caixa.css" rel="stylesheet">
+    <link rel="stylesheet" href="datatables/dataTables.bootstrap.css">
+</head>
+
+<body id="body">
+    <div class="container" id="container">
+        <div class="row" id="nav-second">
+            <div class="col-md-2" id="produtoscontainer">
+                <h1 style="margin-top: 10px"><b>PDV</b></h1>
+            </div>
+            <div class="col-md-7" id="produtoscontainer">
+                <h1 v-if="venda.produto[0].nome" style="text-align: center">
+                    <b>{{venda.listViewSale.redux.nameProdStealthRedux}}</b>
+                </h1>
+                <h1 v-else style="text-align: center;"><b>CAIXA LIVRE</b></h1>
+            </div>
+            <div class="col-md-3" id="produtoscontainer">
+                <h1 style="text-align: right; margin-top: 10px"><b>{{date}}</b></h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6" id="descriptioncontainer" style="overflow: auto; height: 450px">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço</th>
+                            <th>Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 10px">
+                        <tr>
+                            <td v-if="venda.listViewSale.nameProdStealth">
+                                {{venda.listViewSale.nameProdStealth}}</td>
+                            <td v-if="venda.listViewSale.qtdProdStealth">
+                                {{venda.listViewSale.qtdProdStealth}}</td>
+                            <td v-if="venda.listViewSale.priceProdStealth">
+                                {{venda.listViewSale.priceProdStealth}}</td>
+                        </tr>
+                        <tr v-for="produto in venda.listProduto">
+                            <td>{{produto.nome}}</td>
+                            <td>{{produto.quantidade}}</td>
+                            <td>{{produto.preco}}</td>
+                            <td>
+                                <button @click="removeItemList(produto)" id="removeItemButtom"
+                                    class="btn btn-large btn-danger">Remover</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="padding: 0px; margin: 0px">
+                <div class="col-md-6" id="produtoscontainer">
+                    <h3 class="title">PESQUISAR</h3>
+                    <input id="prodInFocus" type="text" class="form-control sizeField" v-on:keyup.13="toQtde"
+                        v-on:keyup.esc="focuInRemoveButtom" v-model="search" style="margin-bottom: 5px">
+                    <ul v-if="search!==''" style="padding: 0px">
+                        <li v-for="produto in productFilter" style="list-style: none; color: white">
+                        </li>
+                    </ul>
+                    <br>
+                    <h3 class="title">QUANTIDADE</h3>
+                    <input type="text" class="form-control sizeField" v-model="venda.produto[0].quantidade"
+                        v-on:keyup.13="toDiscount" id="qtdeInFocus">
+                    <br>
+                    <h3 class="title">Desconto R$</h3>
+                    <input type="text" class="form-control sizeField" v-model="venda.produto[0].desconto"
+                        v-on:keyup.13="toValueReceived" id="descontoInFocus">
+                    <br>
+                    <h3 class="title">Valor Recebido R$</h3>
+                    <input type="text" class="form-control sizeField" v-model="venda.produto[0].valorRecebido"
+                        v-on:keyup.13="addRegister" id="valorRecebidoInFocus">
+                </div>
+                <div class="col-md-6" id="logo">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img v-bind:src="logo" class="img-responsive" alt="Responsive image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" style="padding: 10px 0px 0px 0px; margin:0px">
+                    <div class="col-md-12">
+                        <h3 class="title">TOTAL R$</h3>
+                        <input id="total" type="text" class="form-control sizeFieldTotal"
+                            v-model="venda.paraExibirNatela[0].totalParaLeituraEmString">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row" id="footer">
+            <div class="col-md-4" style="padding: 10px 5px 0px 10px; text-align: left">
+                <p><b>F1 - Novo | F2 - Fechar</b></p>
+            </div>
+        </div>
+        <div class="row" v-if="debug.debug==true" style="background-color: black; border-radius: 10px;">
+            <div class="col-md-6" style="color: white">
+                <h1>Dados do Produto</h1>
+                <pre style="background-color: black; border: 0px; color: white">{{venda | json}}</pre>
+            </div>
+
+            <div class="col-md-6" style="color: white">
+                <h1>Dados da Nota</h1>
+                <pre style="background-color: black; border: 0px; color: white">{{nota | json}}</pre>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="typePay" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel"
+                        style="text-align: center; font-weight: bold; font-size: 20px">Tipo de Pagamento</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <select class="form-control sizeDiscountTotalFieldsTypePay" id="pay" v-model="venda.tPag">
+                                <option value="">Tipo de Pagamento</option>
+                                <option value="01" selected>Dinheiro</option>
+                                <option value="02">Cheque</option>
+                                <option value="03">Cartão de Crédito</option>
+                                <option value="04">Cartão de Débito</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="text-align: center">
+                    <button class="btn btn-danger" @click="finishRegister" style="font-size: 20px">Finalizar
+                        Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap336/js/jquery.min.js"></script>
+    <script src="bootstrap336/js/bootstrap.min.js"></script>
+    <script src="datatables/jquery.dataTables.min.js"></script>
+    <script src="datatables/dataTables.bootstrap.min.js"></script>
+    <script src="scripts/screens/frente_caixa/datatableset.js"></script>
+    <script src="scripts/screens/frente_caixa/pdv.js"></script>
+</body>
+
+</html>
