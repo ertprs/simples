@@ -140,7 +140,7 @@ function createWindow() {
       frame: true
     });
 
-  mainWindow.loadFile("./app/main2.html");
+  mainWindow.loadFile("./app/main2.html")
   mainWindow.webContents.openDevTools()
 
   loginWindow = new BrowserWindow(
@@ -153,9 +153,10 @@ function createWindow() {
       frame: false
     })
 
-  loginWindow.loadFile("./app/login.html");
+  loginWindow.loadFile("./app/login.html")
   loginWindow.once("ready-to-show", () => {
-    loginWindow.show();
+    loginWindow.webContents.openDevTools()
+    loginWindow.show()
   });
 
   loginWindow.setMenu(null);
