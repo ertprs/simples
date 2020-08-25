@@ -12,7 +12,7 @@ let rootus = db.getCollection('rootus').data[0],
 Vue.component('login', {
     template: `
     <div class="form-signin">
-        <img class="mb-4" src="images/logoLogin.png" alt="" style="width:250px">
+        <img class="mb-4" src="images/logoLogin.png" alt="" style="width:150px">
         <br>
         <br>
         <p>{{showMessage}}</p>
@@ -63,7 +63,7 @@ Vue.component('login', {
                     rootus.update(this.root)
                     db.save()
                 }
-                
+
             } else if (this.user !== root_us.user) {
                 this.showMessage = 'Usuário incorreto...'
             } else if (this.pass !== root_us.pass) {

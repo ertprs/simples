@@ -155,7 +155,6 @@ function createWindow() {
 
   loginWindow.loadFile("./app/login.html")
   loginWindow.once("ready-to-show", () => {
-    loginWindow.webContents.openDevTools()
     loginWindow.show()
   });
 
