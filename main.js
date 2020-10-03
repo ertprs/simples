@@ -137,11 +137,12 @@ function createWindow() {
       height: 768,
       icon: __dirname + "/assets/ico.ico",
       show: false,
-      frame: true
+      frame: false
     });
 
-  mainWindow.loadFile("./app/main2.html")
-  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile("./app/main2.html");
+  mainWindow.webContents.openDevTools();
+  mainWindow.setMenu(null);
 
   loginWindow = new BrowserWindow(
     {
@@ -179,98 +180,6 @@ function onMain() {
   app.on("ready", function () {
     createWindow();
 
-    const template = [
-      {
-        label: 'File',
-        submenu: [
-          {
-            label: 'Menu',
-            click: function () {
-              mainWindow.loadFile('./app/main2.html')
-            },
-            accelerator: 'F2'
-          },
-          {
-            label: 'Configurações',
-            click: function () {
-              mainWindow.loadFile('./app/settings.html')
-            },
-          }
-        ]
-      },
-      // {
-      //   label: 'Cadastros',
-      //   submenu: [
-      //     {
-      //       label: 'Clientes',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/index.html')
-      //       }
-      //     },
-      //     {
-      //       label: 'Fornecedores',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/fornecedores.html')
-      //       }
-      //     },
-      //     {
-      //       label: 'Vendedores',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/produtos.html')
-      //       },
-      //       accelerator: 'F4'
-      //     },
-      //     {
-      //       label: 'Transportadora',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/fabricantes.html')
-      //       }
-      //     },
-      //     {
-      //       label: 'Vendas',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/vendas.html')
-      //       }
-      //     },
-      //     {
-      //       label: 'Diversos',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/empresas2.html')
-      //       }
-      //     },
-      //     {
-      //       label: 'Bancos',
-      //       click: function () {
-      //         mainWindow.loadFile('./app/empresas2.html')
-      //       }
-      //     },
-      //   ]
-      // },
-      {
-        role: 'window',
-        label: 'Janela',
-        submenu: [
-          {
-            label: 'Minimizar',
-            role: 'minimize'
-          },
-          {
-            label: 'Fechar',
-            role: 'close'
-          }
-        ]
-      },
-      {
-        label: 'Ajuda',
-        click: function () {
-          electron.shell.openExternal('http://focuxmicrosystems.co')
-        }
-      }
-    ];
-
-    const menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
-
     globalShortcut.register('F1', () => {
       mainWindow.loadFile("./app/pdv.html");
     });
@@ -289,7 +198,7 @@ function onMain() {
   app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
       app.quit()
-    }
+    };
   });
 
   ipcMain.on("show-mainWindow", () => {
@@ -316,9 +225,4 @@ function onMain() {
 ofTheSales();
 ofTheFiscal();
 loadVariables();
-/*
-|=====================================================
-|================INICIA A APLICAÇÃO===================
-|=====================================================
-*/
 onMain();

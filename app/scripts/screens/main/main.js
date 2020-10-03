@@ -1,5 +1,5 @@
 const path = require("path"),
-    { ipcRenderer, remote } = require('electron'),
+    { ipcRenderer } = require('electron'),
     { dialog } = require('electron').remote,
     image2base64 = require('image-to-base64');
 
@@ -55,28 +55,6 @@ new Vue({
         this.rootus = rootus.data[0];
         this.fiscal = fiscal;
         this.produtos = produtosV2.data;
-
-        if (this.rootus.user === 'admin') {
-            this.registered = false;
-            // console.info('Usuário:', 'Não Registrado');
-        } else {
-            this.registered = true;
-            // console.info('Usuário:', 'Registrado');
-            // axios.post('http://apiv1.focux.me/Products/addOr.json', produto)
-            //     .then(function (response) {
-            //         console.info('exportDbProducts:',
-            //             {
-            //                 Resultado: response,
-            //                 Produto: produto
-            //             });
-            //     })
-            //     .catch(function (error) {
-            //         console.info('exportDbProducts:',
-            //             {
-            //                 Resultado: error,
-            //             });
-            //     });
-        }
     },
     beforeMount: function () {
     },
@@ -92,14 +70,14 @@ new Vue({
             }, 1200);
         },
         goToPDV: function () {
-            if (this.produtos.length === 0) {
+            if (!this.produtos.length) {
                 dialog.showMessageBox({
                     message: 'Para acessar o PDV, primeiro você precisa ter produtos cadastrados!'
                 });
             } else {
                 location.href = "pdv.html";
             }
-        },      
+        },
         emissionNfces: function () {
             ipcRenderer.send("show-nfcesWindow");
         },
@@ -108,6 +86,9 @@ new Vue({
         },
         importNotes: function () {
             ipcRenderer.send("show-notesWindow");
+        },
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
         }
     }
 });
