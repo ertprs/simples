@@ -19,7 +19,7 @@
       </div>
     </div>
     <header class="toolbar toolbar-header">
-      <h1 class="title">Equal Community - Sistema Comercial - Clientes</h1>
+      <h1 class="title">Simples - Professional</h1>
       <div class="toolbar-actions">
         <div class="btn-group">
           <a href="main2.html" class="btn btn-default link">
@@ -66,24 +66,24 @@
 
     <div class="window-content" style="background-color: #f5f5f4">
       <div class="pane-group">
-
+        <div class="pane-sm sidebar">
+          <nav class="nav-group">
+            <h5 class="nav-group-title">Menu Clientes</h5>
+            <a class="nav-group-item">
+              <span class="icon icon-doc-text"></span>
+              Listar
+            </a>
+            <span class="nav-group-item">
+              <span class="icon icon-plus"></span>
+              Novo Cliente PF
+            </span>
+            <span class="nav-group-item">
+              <span class="icon icon-plus"></span>
+              Novo Cliente PJ
+            </span>
+          </nav>
+        </div>
         <div class="pane space" v-if="openModal==false">
-
-          <div class="btn-group">
-            <a href="clients.html" class="btn btn-default link">
-              Listar Clientes
-            </a>
-            <a @click="createClient()" class="btn btn-default link">
-              Novo Cliente Pessoa Física
-            </a>
-            <a @click="createClient()" class="btn btn-default link">
-              Novo Cliente Pessoa Jurídica
-            </a>
-            <a @click="createClient()" class="btn btn-default link">
-              Relatórios
-            </a>
-          </div>
-
           <table id="clientes" class="display" style="width:100%">
             <thead>
               <tr>
@@ -124,149 +124,122 @@
             </tbody>
           </table>
         </div>
+
+
         <div class="pane" v-if="openModal==true">
-          <p style="text-align: center; font-weight: bold; font-size: 16px; padding: 0px; margin: 10px 0px 0px 0px;">
-            Cadastro de Clientes - Pessoa Física</p>
-          <div class="form-group">
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.nome" placeholder="Nome*">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.cpf" placeholder="CPF">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.rg" placeholder="RG">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.razao_social" placeholder="Razão Social">
-            </div>
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.nome_fantasia" placeholder="Nome Fantasia">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.cnpj" placeholder="CNPJ">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.inscricao_estadual"
-                placeholder="Inscrição Estadual">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.inscricao_municipal"
-                placeholder="Inscrição Municipal">
-            </div>
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.limite_credito" placeholder="Limite Crédito">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.telefone" placeholder="Telefone">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.fax" placeholder="Fax">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.celular" placeholder="Celular*">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box-line">
-              <div class="box-line-inner">
-                <input type="text" class="form-control" v-model="client.email" placeholder="E-mail">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.endereco" placeholder="Endereço*">
-            </div>
-            <div class="box">
-              <input type="number" class="form-control" v-model="client.numero" placeholder="Número*">
-            </div>
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.bairro" placeholder="Bairro">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box-line">
-              <div class="box-line-inner-little">
-                <div class="form-group">
-                  <input type="number" class="form-control" v-model="client.cep" placeholder="CEP">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.complemento" placeholder="Complemento">
-            </div>
-            <div class="box">
-              <input type="text" class="form-control" v-model="client.apelido" placeholder="Apelido">
-            </div>
-            <div class="box">
-              <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
-                <option v-if="client.estado_civil" value="{{client.estado_civil}}" selected>
-                  {{client.estado_civil}}</option>
-                <option v-else value="" selected>Estado Civil</option>
-                <option value="solteiro(a)">Solteiro(a)</option>
-                <option value="casado(a)">Casado(a)</option>
-                <option value="viuvo(a)">Viúvo(a)</option>
-                <option value="outros">Outros</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box-line">
-              <div class="box-line-inner-little">
-                <select name="mes" class="form-control" required="true" v-model="client.sexo">
-                  <option v-if="client.sexo" value="{{client.sexo}}" selected>
-                    {{client.sexo}}</option>
-                  <option v-else value="" selected>Sexo</option>
-                  <option value="masculino">Masculino(a)</option>
-                  <option value="feminino">Feminino(a)</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box">
-              <select class="form-control" v-model="client.uf">
-                <option v-if="client.uf" value="{{client.uf}}" selected>
-                  {{client.uf}}</option>
-                <option v-else value="" selected>Estado*</option>
-                <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
-              </select>
-            </div>
-            <div class="box">
-              <select class="form-control" v-model="client.municipio">
-                <option v-if="client.municipio" value="{{client.municipio}}" selected>
-                  {{client.municipio}}</option>
-                <option v-else value="" selected>Município*</option>
-                <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="box-line">
-              <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
-              <button type="button" class="btn btn-mini btn-default" v-if="todaInfomacaoFront"
-                @click="clientStoreOrUpdate()">Salvar</button>
-            </div>
+          <div class="form-group" style="padding: 10px">
+            <label>Nome</label>
+            <input type="text" class="form-control" v-model="client.nome" placeholder="Nome*">
+            <hr />
+            <label>CPF</label>
+            <input type="number" class="form-control" v-model="client.cpf" placeholder="CPF">
+            <hr />
+            <label>RG</label>
+            <input type="number" class="form-control" v-model="client.rg" placeholder="RG">
+            <hr />
+            <label>Razão Social</label>
+            <input type="text" class="form-control" v-model="client.razao_social" placeholder="Razão Social">
+            <hr />
+            <label>Nome Fantasia</label>
+            <input type="text" class="form-control" v-model="client.nome_fantasia" placeholder="Nome Fantasia">
+            <hr />
+            <label>CNPJ</label>
+            <input type="number" class="form-control" v-model="client.cnpj" placeholder="CNPJ">
           </div>
         </div>
+        <div class="pane" v-if="openModal==true" style="padding: 10px">
+          <label>Inscrição Estadual</label>
+          <input type="number" class="form-control" v-model="client.inscricao_estadual"
+            placeholder="Inscrição Estadual">
+          <hr />
+          <label>Inscrição Municipal</label>
+          <input type="number" class="form-control" v-model="client.inscricao_municipal"
+            placeholder="Inscrição Municipal">
+          <hr />
+          <label>Limite Crédito</label>
+          <input type="text" class="form-control" v-model="client.limite_credito" placeholder="Limite Crédito">
+          <hr />
+          <label>Telefone</label>
+          <input type="number" class="form-control" v-model="client.telefone" placeholder="Telefone">
+          <hr />
+          <label>Fax</label>
+          <input type="number" class="form-control" v-model="client.fax" placeholder="Fax">
+          <hr />
+          <label>Celular*</label>
+          <input type="number" class="form-control" v-model="client.celular" placeholder="Celular*">
+        </div>
+        <div class="pane" v-if="openModal==true" style="padding: 10px">
+          <label>Apelido</label>
+          <input type="text" class="form-control" v-model="client.apelido" placeholder="Apelido">
+          <hr />
+          <label>E-mail</label>
+          <input type="text" class="form-control" v-model="client.email" placeholder="E-mail">
+          <hr />
+          <label>CEP</label>
+          <input type="number" class="form-control" v-model="client.cep" placeholder="CEP">
+          <hr />
+          <label>Complemento</label>
+          <input type="text" class="form-control" v-model="client.complemento" placeholder="Complemento">
+          <hr />
+          <label>Estado Civil</label>
+          <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
+            <option v-if="client.estado_civil" value="{{client.estado_civil}}" selected>
+              {{client.estado_civil}}</option>
+            <option v-else value="" selected>Estado Civil</option>
+            <option value="solteiro(a)">Solteiro(a)</option>
+            <option value="casado(a)">Casado(a)</option>
+            <option value="viuvo(a)">Viúvo(a)</option>
+            <option value="outros">Outros</option>
+          </select>
+          <hr />
+          <label>Sexo</label>
+          <select name="mes" class="form-control" required="true" v-model="client.sexo">
+            <option v-if="client.sexo" value="{{client.sexo}}" selected>
+              {{client.sexo}}</option>
+            <option v-else value="" selected>Sexo</option>
+            <option value="masculino">Masculino(a)</option>
+            <option value="feminino">Feminino(a)</option>
+          </select>
+        </div>
+        <d class="pane" v-if="openModal==true" style="padding: 10px">
+          <label>Endereço*</label>
+          <input type="text" class="form-control" v-model="client.endereco" placeholder="Endereço*">
+          <hr />
+          <label>Número*</label>
+          <input type="number" class="form-control" v-model="client.numero" placeholder="Número*">
+          <hr />
+          <label>Bairro</label>
+          <input type="text" class="form-control" v-model="client.bairro" placeholder="Bairro">
+          <hr />
+          <label>Estado*</label>
+          <select class="form-control" v-model="client.uf">
+            <option v-if="client.uf" value="{{client.uf}}" selected>
+              {{client.uf}}</option>
+            <option v-else value="" selected>Estado*</option>
+            <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
+          </select>
+          <hr />
+          <label>Município*</label>
+          <select class="form-control" v-model="client.municipio">
+            <option v-if="client.municipio" value="{{client.municipio}}" selected>
+              {{client.municipio}}</option>
+            <option v-else value="" selected>Município*</option>
+            <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
+          </select>
+          <hr />
+          <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
+          <button type="button" class="btn btn-mini btn-default" v-if="todaInfomacaoFront"
+            @click="clientStoreOrUpdate()">Salvar</button>
       </div>
     </div>
+  </div>
 
-    <footer class="toolbar toolbar-footer">
-      <div class="toolbar-actions">
-        <span>SEMPRE EVOLUINDO!</span>
-        <span>SEMPRE EVOLUINDO!</span>
-      </div>
-    </footer>
+  <footer class="toolbar toolbar-footer">
+    <div class="toolbar-actions">
+      <span>SEMPRE EVOLUINDO!</span>
+      <span>SEMPRE EVOLUINDO!</span>
+    </div>
+  </footer>
   </div>
   <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
   <script src="datatables11020/datatables.min.js"></script>
