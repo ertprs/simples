@@ -88,13 +88,17 @@ new Vue({
             remote.getCurrentWindow().reload();
         },
         closeModal: function () {
-            // this.loading = true;
-            // this.openModal = false;
             remote.getCurrentWindow().reload();
         },
+        /**
+         * Deprecated
+         */
         close: function () {
             remote.getCurrentWindow().reload();
             remote.getCurrentWindow().hide();
+        },
+        listClients: function () {
+            location.replace("clients.html");
         },
         editClient: function (client) {
             this.openModal = true;

@@ -31,7 +31,6 @@ new Vue({
             }
         },
         closeApplication: function () {
-            console.log('Teste');
             ipcRenderer.send("close-app");
         }
     }

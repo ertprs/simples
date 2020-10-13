@@ -69,17 +69,13 @@
         <div class="pane-sm sidebar">
           <nav class="nav-group">
             <h5 class="nav-group-title">Menu Clientes</h5>
-            <a class="nav-group-item">
+            <a class="nav-group-item" @click="listClients">
               <span class="icon icon-doc-text"></span>
               Listar
             </a>
-            <span class="nav-group-item">
-              <span class="icon icon-plus"></span>
-              Novo Cliente PF
-            </span>
-            <span class="nav-group-item">
-              <span class="icon icon-plus"></span>
-              Novo Cliente PJ
+            <span class="nav-group-item" @click="createClient">
+              <span class="icon icon-user"></span>
+              Novo Cliente
             </span>
           </nav>
         </div>
@@ -124,62 +120,60 @@
             </tbody>
           </table>
         </div>
-
-
         <div class="pane" v-if="openModal==true">
           <div class="form-group" style="padding: 10px">
-            <label>Nome</label>
-            <input type="text" class="form-control" v-model="client.nome" placeholder="Nome*">
+            <label>Nome Do Cliente*</label>
+            <input type="text" class="form-control" v-model="client.nome" placeholder="">
             <hr />
             <label>CPF</label>
-            <input type="number" class="form-control" v-model="client.cpf" placeholder="CPF">
-            <hr />
-            <label>RG</label>
-            <input type="number" class="form-control" v-model="client.rg" placeholder="RG">
-            <hr />
-            <label>Razão Social</label>
-            <input type="text" class="form-control" v-model="client.razao_social" placeholder="Razão Social">
-            <hr />
-            <label>Nome Fantasia</label>
-            <input type="text" class="form-control" v-model="client.nome_fantasia" placeholder="Nome Fantasia">
+            <input type="number" class="form-control" v-model="client.cpf" placeholder="">
             <hr />
             <label>CNPJ</label>
-            <input type="number" class="form-control" v-model="client.cnpj" placeholder="CNPJ">
+            <input type="number" class="form-control" v-model="client.cnpj" placeholder="">
+            <hr />
+            <label>RG</label>
+            <input type="number" class="form-control" v-model="client.rg" placeholder="">
+            <hr />
+            <label>Razão Social</label>
+            <input type="text" class="form-control" v-model="client.razao_social" placeholder="">
+            <hr />
+            <label>Nome Fantasia</label>
+            <input type="text" class="form-control" v-model="client.nome_fantasia" placeholder="">
           </div>
         </div>
         <div class="pane" v-if="openModal==true" style="padding: 10px">
           <label>Inscrição Estadual</label>
           <input type="number" class="form-control" v-model="client.inscricao_estadual"
-            placeholder="Inscrição Estadual">
+            placeholder="">
           <hr />
           <label>Inscrição Municipal</label>
           <input type="number" class="form-control" v-model="client.inscricao_municipal"
-            placeholder="Inscrição Municipal">
+            placeholder="">
           <hr />
           <label>Limite Crédito</label>
-          <input type="text" class="form-control" v-model="client.limite_credito" placeholder="Limite Crédito">
+          <input type="text" class="form-control" v-model="client.limite_credito" placeholder="">
           <hr />
           <label>Telefone</label>
-          <input type="number" class="form-control" v-model="client.telefone" placeholder="Telefone">
+          <input type="number" class="form-control" v-model="client.telefone" placeholder="">
           <hr />
           <label>Fax</label>
-          <input type="number" class="form-control" v-model="client.fax" placeholder="Fax">
+          <input type="number" class="form-control" v-model="client.fax" placeholder="">
           <hr />
           <label>Celular*</label>
-          <input type="number" class="form-control" v-model="client.celular" placeholder="Celular*">
+          <input type="number" class="form-control" v-model="client.celular" placeholder="">
         </div>
         <div class="pane" v-if="openModal==true" style="padding: 10px">
           <label>Apelido</label>
-          <input type="text" class="form-control" v-model="client.apelido" placeholder="Apelido">
+          <input type="text" class="form-control" v-model="client.apelido" placeholder="">
           <hr />
           <label>E-mail</label>
-          <input type="text" class="form-control" v-model="client.email" placeholder="E-mail">
+          <input type="text" class="form-control" v-model="client.email" placeholder="">
           <hr />
           <label>CEP</label>
-          <input type="number" class="form-control" v-model="client.cep" placeholder="CEP">
+          <input type="number" class="form-control" v-model="client.cep" placeholder="">
           <hr />
           <label>Complemento</label>
-          <input type="text" class="form-control" v-model="client.complemento" placeholder="Complemento">
+          <input type="text" class="form-control" v-model="client.complemento" placeholder="">
           <hr />
           <label>Estado Civil</label>
           <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
@@ -201,15 +195,15 @@
             <option value="feminino">Feminino(a)</option>
           </select>
         </div>
-        <d class="pane" v-if="openModal==true" style="padding: 10px">
+        <div class="pane" v-if="openModal==true" style="padding: 10px">
           <label>Endereço*</label>
-          <input type="text" class="form-control" v-model="client.endereco" placeholder="Endereço*">
+          <input type="text" class="form-control" v-model="client.endereco" placeholder="">
           <hr />
           <label>Número*</label>
-          <input type="number" class="form-control" v-model="client.numero" placeholder="Número*">
+          <input type="number" class="form-control" v-model="client.numero" placeholder="">
           <hr />
           <label>Bairro</label>
-          <input type="text" class="form-control" v-model="client.bairro" placeholder="Bairro">
+          <input type="text" class="form-control" v-model="client.bairro" placeholder="">
           <hr />
           <label>Estado*</label>
           <select class="form-control" v-model="client.uf">
@@ -230,16 +224,15 @@
           <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
           <button type="button" class="btn btn-mini btn-default" v-if="todaInfomacaoFront"
             @click="clientStoreOrUpdate()">Salvar</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <footer class="toolbar toolbar-footer">
-    <div class="toolbar-actions">
-      <span>SEMPRE EVOLUINDO!</span>
-      <span>SEMPRE EVOLUINDO!</span>
-    </div>
-  </footer>
+    <footer class="toolbar toolbar-footer">
+      <div class="toolbar-actions">
+        <span class="pull-left">Focux - Copyright © - Todos os Direitos Reservados</span>
+      </div>
+    </footer>
   </div>
   <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
   <script src="datatables11020/datatables.min.js"></script>
