@@ -2,6 +2,22 @@
     margin-right: 3px;
 }
 
+#clients-form-group {
+    padding: 10px;
+}
+.table-widdth {
+    width: 100%;
+}
+
+.background-simples-color {
+    background-color: #f5f5f4;
+}
+
+.loading {
+    background-color: white;
+    z-index: 9000;
+}
+
 .link {
     text-decoration: none;
     padding: 10px;
@@ -34,31 +50,35 @@
     margin-left: 10px;
 }
 
-.space{
+.space {
     padding: 10px;
 }
 
 .box {
     float: left;
-    width: 300px; height: 20px;
+    width: 300px;
+    height: 20px;
     margin: 10px 20px;
 }
 
 .box-with-label {
     float: left;
-    width: 300px; height: 50px;
+    width: 300px;
+    height: 50px;
     margin: 10px 20px;
 }
 
 .box-line {
     float: left;
-    width: 100%; height: 20px;
+    width: 100%;
+    height: 20px;
     margin: 10px 20px;
 }
 
 .box-bleeds {
     float: left;
-    width: 300px; height: 20px;
+    width: 300px;
+    height: 20px;
     margin: 10px 20px 20px 0px;
 }
 
@@ -75,7 +95,8 @@
 
 .box-supplement {
     float: left;
-    width: 300px; height: 20px;
+    width: 300px;
+    height: 20px;
     margin: 10px 20px 20px 0px;
 }
 
@@ -104,24 +125,24 @@
     margin-left: 6%;
 }
 
-#buttons-space{
+#buttons-space {
     width: 100%;
 }
 
-.box-text{
+.box-text {
     float: left;
     width: 100%;
-    padding:5px 5px 5px 22.5px
+    padding: 5px 5px 5px 22.5px;
 }
 
-.info{
+.info {
     padding: 10px;
     font-weight: normal;
     color: red;
     float: right;
 }
 
-.form{
+.form {
     width: 400px;
 }
 
@@ -130,8 +151,8 @@
     max-width: 270px;
     padding: 15px;
     margin: auto;
-  }
+}
 
-  .preloader img{
+.preloader img {
     padding-top: 70px;
-  }
+}

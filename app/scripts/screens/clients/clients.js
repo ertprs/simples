@@ -15,25 +15,16 @@ if (db.getCollection('clientes') == null) {
 
 var clientes = db.getCollection('clientes');
 var cidadesestados = db.getCollection('cidadesestados');
-let rootus = db.getCollection('rootus');
 var estados = db.getCollection('estados');
-let debug = db.getCollection('debug');
-var fiscal = db.getCollection('fiscal');
-var usuarios = db.getCollection('usuarios');
 
 new Vue({
     el: '#main',
     data: {
-        rootus: [],
-        debug: [],
-        fiscal: [],
         clientes: [],
         cidadesestados: [],
-        usuarios: [],
         link: true,
         estados: [],
         loading: true,
-        mode: '',
         client: {
             nome: '',
             cpf: '',
@@ -67,16 +58,9 @@ new Vue({
     },
     ready: function () {
         this.loadingShow();
-        this.rootus = rootus.data[0];
-        this.debug = debug.data[0];
-        this.mode = 'edicao';
         this.clientes = clientes.data;
         this.cidadesestados = cidadesestados.data[0].cidades;
         this.estados = [estados.data[0]][0].estados;
-        this.fiscal = fiscal.data[0];
-        this.usuarios = usuarios.data[0];
-
-        console.log(this.clientes);
     },
     methods: {
         loadingShow: function () {
@@ -90,26 +74,12 @@ new Vue({
         closeModal: function () {
             remote.getCurrentWindow().reload();
         },
-        /**
-         * Deprecated
-         */
-        close: function () {
-            remote.getCurrentWindow().reload();
-            remote.getCurrentWindow().hide();
-        },
         listClients: function () {
             location.replace("clients.html");
         },
         editClient: function (client) {
             this.openModal = true;
             this.client = client
-        },
-        validity: function () {
-            if (this.rootus.logado == true) {
-
-            } else {
-                location.replace("login.html");
-            }
         },
         createClient: function () {
             this.mode = 'cadastro';
@@ -170,7 +140,7 @@ new Vue({
         }
     },
     computed: {
-        todaInfomacaoFront: function () {
+        allInformationFront: function () {
             return this.client.nome
                 && this.client.celular
                 && this.client.endereco

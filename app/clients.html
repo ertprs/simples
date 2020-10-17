@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Equal 0.0.1</title>
+  <title>Simples 1.0.1</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="photon/css/photon.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -11,7 +11,7 @@
 
 <body>
   <div class="window" id="main">
-    <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+    <div class="pane-group loading" v-if="loading == true">
       <div class="pane space">
         <div class="preloader">
           <img src="images/Infinity-1s-200px.gif" />
@@ -64,7 +64,7 @@
       </div>
     </header>
 
-    <div class="window-content" style="background-color: #f5f5f4">
+    <div class="window-content background-simples-color">
       <div class="pane-group">
         <div class="pane-sm sidebar">
           <nav class="nav-group">
@@ -80,7 +80,7 @@
           </nav>
         </div>
         <div class="pane space" v-if="openModal==false">
-          <table id="clientes" class="display" style="width:100%">
+          <table id="clientes" class="display table-widdth">
             <thead>
               <tr>
                 <th>Nome</th>
@@ -94,7 +94,6 @@
                 <th>Número</th>
                 <th>UF</th>
                 <th>Editar</th>
-                <th>Deletar</th>
               </tr>
             </thead>
             <tbody>
@@ -113,15 +112,12 @@
                   <button @click="editClient(cliente)" id="font-button"
                     class="btn btn-large btn-default">Editar</button>
                 </td>
-                <td>
-                  <button @click="remove(cliente)" id="font-button" class="btn btn-large btn-default">Deletar</button>
-                </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="pane" v-if="openModal==true">
-          <div class="form-group" style="padding: 10px">
+          <div class="form-group" id="clients-form-group">
             <label>Nome Do Cliente*</label>
             <input type="text" class="form-control" v-model="client.nome" placeholder="">
             <hr />
@@ -141,93 +137,96 @@
             <input type="text" class="form-control" v-model="client.nome_fantasia" placeholder="">
           </div>
         </div>
-        <div class="pane" v-if="openModal==true" style="padding: 10px">
-          <label>Inscrição Estadual</label>
-          <input type="number" class="form-control" v-model="client.inscricao_estadual"
-            placeholder="">
-          <hr />
-          <label>Inscrição Municipal</label>
-          <input type="number" class="form-control" v-model="client.inscricao_municipal"
-            placeholder="">
-          <hr />
-          <label>Limite Crédito</label>
-          <input type="text" class="form-control" v-model="client.limite_credito" placeholder="">
-          <hr />
-          <label>Telefone</label>
-          <input type="number" class="form-control" v-model="client.telefone" placeholder="">
-          <hr />
-          <label>Fax</label>
-          <input type="number" class="form-control" v-model="client.fax" placeholder="">
-          <hr />
-          <label>Celular*</label>
-          <input type="number" class="form-control" v-model="client.celular" placeholder="">
+        <div class="pane" v-if="openModal==true">
+          <div class="form-group" id="clients-form-group">
+            <label>Inscrição Estadual</label>
+            <input type="number" class="form-control" v-model="client.inscricao_estadual" placeholder="">
+            <hr />
+            <label>Inscrição Municipal</label>
+            <input type="number" class="form-control" v-model="client.inscricao_municipal" placeholder="">
+            <hr />
+            <label>Limite Crédito</label>
+            <input type="text" class="form-control" v-model="client.limite_credito" placeholder="">
+            <hr />
+            <label>Telefone</label>
+            <input type="number" class="form-control" v-model="client.telefone" placeholder="">
+            <hr />
+            <label>Fax</label>
+            <input type="number" class="form-control" v-model="client.fax" placeholder="">
+            <hr />
+            <label>Celular*</label>
+            <input type="number" class="form-control" v-model="client.celular" placeholder="">
+          </div>
         </div>
-        <div class="pane" v-if="openModal==true" style="padding: 10px">
-          <label>Apelido</label>
-          <input type="text" class="form-control" v-model="client.apelido" placeholder="">
-          <hr />
-          <label>E-mail</label>
-          <input type="text" class="form-control" v-model="client.email" placeholder="">
-          <hr />
-          <label>CEP</label>
-          <input type="number" class="form-control" v-model="client.cep" placeholder="">
-          <hr />
-          <label>Complemento</label>
-          <input type="text" class="form-control" v-model="client.complemento" placeholder="">
-          <hr />
-          <label>Estado Civil</label>
-          <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
-            <option v-if="client.estado_civil" value="{{client.estado_civil}}" selected>
-              {{client.estado_civil}}</option>
-            <option v-else value="" selected>Estado Civil</option>
-            <option value="solteiro(a)">Solteiro(a)</option>
-            <option value="casado(a)">Casado(a)</option>
-            <option value="viuvo(a)">Viúvo(a)</option>
-            <option value="outros">Outros</option>
-          </select>
-          <hr />
-          <label>Sexo</label>
-          <select name="mes" class="form-control" required="true" v-model="client.sexo">
-            <option v-if="client.sexo" value="{{client.sexo}}" selected>
-              {{client.sexo}}</option>
-            <option v-else value="" selected>Sexo</option>
-            <option value="masculino">Masculino(a)</option>
-            <option value="feminino">Feminino(a)</option>
-          </select>
+        <div class="pane" v-if="openModal==true">
+          <div class="form-group" id="clients-form-group">
+            <label>Apelido</label>
+            <input type="text" class="form-control" v-model="client.apelido" placeholder="">
+            <hr />
+            <label>E-mail</label>
+            <input type="text" class="form-control" v-model="client.email" placeholder="">
+            <hr />
+            <label>CEP</label>
+            <input type="number" class="form-control" v-model="client.cep" placeholder="">
+            <hr />
+            <label>Complemento</label>
+            <input type="text" class="form-control" v-model="client.complemento" placeholder="">
+            <hr />
+            <label>Estado Civil</label>
+            <select name="mes" class="form-control" required="true" v-model="client.estado_civil">
+              <option v-if="client.estado_civil" value="{{client.estado_civil}}" selected>
+                {{client.estado_civil}}</option>
+              <option v-else value="" selected>Estado Civil</option>
+              <option value="solteiro(a)">Solteiro(a)</option>
+              <option value="casado(a)">Casado(a)</option>
+              <option value="viuvo(a)">Viúvo(a)</option>
+              <option value="outros">Outros</option>
+            </select>
+            <hr />
+            <label>Sexo</label>
+            <select name="mes" class="form-control" required="true" v-model="client.sexo">
+              <option v-if="client.sexo" value="{{client.sexo}}" selected>
+                {{client.sexo}}</option>
+              <option v-else value="" selected>Sexo</option>
+              <option value="masculino">Masculino(a)</option>
+              <option value="feminino">Feminino(a)</option>
+            </select>
+          </div>
         </div>
-        <div class="pane" v-if="openModal==true" style="padding: 10px">
-          <label>Endereço*</label>
-          <input type="text" class="form-control" v-model="client.endereco" placeholder="">
-          <hr />
-          <label>Número*</label>
-          <input type="number" class="form-control" v-model="client.numero" placeholder="">
-          <hr />
-          <label>Bairro</label>
-          <input type="text" class="form-control" v-model="client.bairro" placeholder="">
-          <hr />
-          <label>Estado*</label>
-          <select class="form-control" v-model="client.uf">
-            <option v-if="client.uf" value="{{client.uf}}" selected>
-              {{client.uf}}</option>
-            <option v-else value="" selected>Estado*</option>
-            <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
-          </select>
-          <hr />
-          <label>Município*</label>
-          <select class="form-control" v-model="client.municipio">
-            <option v-if="client.municipio" value="{{client.municipio}}" selected>
-              {{client.municipio}}</option>
-            <option v-else value="" selected>Município*</option>
-            <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
-          </select>
-          <hr />
-          <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
-          <button type="button" class="btn btn-mini btn-default" v-if="todaInfomacaoFront"
-            @click="clientStoreOrUpdate()">Salvar</button>
+        <div class="pane" v-if="openModal==true">
+          <div class="form-group" id="clients-form-group">
+            <label>Endereço*</label>
+            <input type="text" class="form-control" v-model="client.endereco" placeholder="">
+            <hr />
+            <label>Número*</label>
+            <input type="number" class="form-control" v-model="client.numero" placeholder="">
+            <hr />
+            <label>Bairro</label>
+            <input type="text" class="form-control" v-model="client.bairro" placeholder="">
+            <hr />
+            <label>Estado*</label>
+            <select class="form-control" v-model="client.uf">
+              <option v-if="client.uf" value="{{client.uf}}" selected>
+                {{client.uf}}</option>
+              <option v-else value="" selected>Estado*</option>
+              <option value="{{e.uf_estado}}" v-for="e in estados">{{e.uf_estado}}</option>
+            </select>
+            <hr />
+            <label>Município*</label>
+            <select class="form-control" v-model="client.municipio">
+              <option v-if="client.municipio" value="{{client.municipio}}" selected>
+                {{client.municipio}}</option>
+              <option v-else value="" selected>Município*</option>
+              <option value="{{ce.nome_cidade}}" v-for="ce in cidadesestados">{{ce.nome_cidade}}</option>
+            </select>
+            <hr />
+            <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
+            <button type="button" class="btn btn-mini btn-default" v-if="allInformationFront"
+              @click="clientStoreOrUpdate()">Salvar</button>
+          </div>
         </div>
       </div>
     </div>
-
     <footer class="toolbar toolbar-footer">
       <div class="toolbar-actions">
         <span class="pull-left">Focux - Copyright © - Todos os Direitos Reservados</span>
