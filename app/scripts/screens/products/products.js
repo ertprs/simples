@@ -1,4 +1,5 @@
-const path = require("path");
+const path = require("path"),
+    { ipcRenderer } = require('electron');
 const { dialog } = require('electron').remote;
 let loki = require("lokijs");
 let db = new loki(path.join(__dirname, "./loki/loki.json"));
@@ -70,16 +71,14 @@ new Vue({
         if (fornecedoresV2.data.length == 0) {
             this.fornecedoresV2 = false;
         }
-        else 
-        {
+        else {
             this.fornecedoresV2 = fornecedoresV2.data;
         }
 
         if (fabricantesV2.data.length == 0) {
             this.fabricantesV2 = false;
         }
-        else 
-        {
+        else {
             this.fabricantesV2 = fabricantesV2.data;
         }
     },
@@ -329,7 +328,10 @@ new Vue({
             db.save();
             this.produtoGeral = false;
             location.reload();
-        }
+        },
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
+        },
     },
     computed: {
         allInformationFront: function () {
