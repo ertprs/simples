@@ -41,6 +41,9 @@ new Vue({
         this.produtosV2 = produtosV2.data;
     },
     methods: {
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
+        },
         goToPDV: function () {
             if (this.produtosV2.length === 0) {
                 dialog.showMessageBox({
