@@ -121,6 +121,9 @@ new Vue({
                 this.loading = false;
             }, 1200);
         },
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
+        },
         goToPDV: function () {
             if (this.produtos.length === 0) {
                 dialog.showMessageBox({

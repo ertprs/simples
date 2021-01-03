@@ -5,8 +5,10 @@
   <title>Simples 1.0.1</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="photon/css/photon.css">
-  <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="datatables11020/datatables.min.css">
+
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="photon/css/simples.css">
 </head>
 
 <body>
@@ -56,9 +58,8 @@
           <a href="shortcuts.html" class="btn btn-default link">
             <span class="icon icon-layout span-margin"></span> Atalhos
           </a>
-          <button v-if="registered==false" v-on:click="currentTab = tabs.register" class="btn btn-negative link">
-            <span class="icon icon-lock-open span-margin"></span>
-            Registrar
+          <button v-on:click="closeApplication" class="btn btn-default link buttonClose">
+            Fechar
           </button>
         </div>
       </div>

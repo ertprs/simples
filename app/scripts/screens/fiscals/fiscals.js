@@ -5,7 +5,7 @@ let db = new loki(path.join(__dirname, "./loki/fiscals.json"));
 let read = require('read-file-utf8');
 let data = read(path.join(__dirname, "./loki/fiscals.json"));
 let data2 = read(path.join(__dirname, "./loki/loki.json"));
-const { remote } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 db.loadJSON(data);
 db2.loadJSON(data2);
 window.Vue = require('vue');
@@ -46,6 +46,9 @@ new Vue({
         },
         reload: function () {
             remote.getCurrentWindow().reload();
+        },
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
         },
         close: function () {
             remote.getCurrentWindow().reload();

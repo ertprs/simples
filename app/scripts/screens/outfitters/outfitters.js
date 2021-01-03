@@ -46,6 +46,9 @@ new Vue({
                 this.loading = false;
             }, 1200);
         },
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
+        },
         reload: function () {
             remote.getCurrentWindow().reload();
         },

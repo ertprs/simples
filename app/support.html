@@ -2,10 +2,12 @@
 <html>
 
 <head>
-    <title>Equal 0.0.1</title>
+    <title>Simples 0.0.1</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="photon/css/photon.css">
+    
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="photon/css/simples.css">
 </head>
 
 <body>
@@ -18,7 +20,7 @@
             </div>
         </div>
         <header class="toolbar toolbar-header">
-            <h1 class="title">Equal - Sistema Comercial</h1>
+            <h1 class="title">Suporte</h1>
             <div class="toolbar-actions">
                 <div class="btn-group">
                     <a href="main2.html" class="btn btn-default link">
@@ -55,7 +57,9 @@
                     <a href="shortcuts.html" class="btn btn-default link">
                         <span class="icon icon-layout span-margin"></span> Atalhos
                     </a>
-                    
+                    <button v-on:click="closeApplication" class="btn btn-default link buttonClose">
+                        Fechar
+                    </button>
                 </div>
             </div>
         </header>
@@ -79,8 +83,7 @@
         </div>
         <footer class="toolbar toolbar-footer">
             <div class="toolbar-actions">
-                <span>SEMPRE EVOLUINDO!</span>
-                <span>SEMPRE EVOLUINDO!</span>
+                <span class="pull-left">Focux - Copyright © - Todos os Direitos Reservados</span>
             </div>
         </footer>
     </div>

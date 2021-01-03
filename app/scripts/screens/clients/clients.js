@@ -63,6 +63,9 @@ new Vue({
         this.estados = [estados.data[0]][0].estados;
     },
     methods: {
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
+        },
         loadingShow: function () {
             setTimeout(() => {
                 this.loading = false;

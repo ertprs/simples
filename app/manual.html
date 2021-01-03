@@ -5,7 +5,9 @@
     <title>Equal 0.0.1</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="photon/css/photon.css">
+    
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="photon/css/simples.css">
 </head>
 
 <body>
@@ -55,7 +57,9 @@
                     <a href="shortcuts.html" class="btn btn-default link">
                         <span class="icon icon-layout span-margin"></span> Atalhos
                     </a>
-                    
+                    <button v-on:click="closeApplication" class="btn btn-default link buttonClose">
+                        Fechar
+                    </button>
                 </div>
             </div>
         </header>
@@ -89,8 +93,7 @@
         </div>
         <footer class="toolbar toolbar-footer">
             <div class="toolbar-actions">
-                <span>SEMPRE EVOLUINDO!</span>
-                <span>SEMPRE EVOLUINDO!</span>
+                <span class="pull-left">Focux - Copyright © - Todos os Direitos Reservados</span>
             </div>
         </footer>
     </div>

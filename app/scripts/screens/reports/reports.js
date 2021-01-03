@@ -72,6 +72,9 @@ new Vue({
                 location.href = "pdv.html";
             }
         },
+        closeApplication: function () {
+            ipcRenderer.send("close-app");
+        },
         loadingShow: function () {
             setTimeout(() => {
                 this.loading = false;
