@@ -56,13 +56,6 @@
                     </button>
                 </div>
             </div>
-            <div class="toolbar-actions">
-                <div class="btn-group">
-                    <a @click="createProduct()" class="btn btn-default link" style="border-radius: 3px;">
-                        Novo Produto
-                    </a>
-                </div>
-            </div>
         </header>
         <div class="window-content" style="background-color: #f5f5f4">
             <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
@@ -74,7 +67,16 @@
             </div>
             <div class="pane-group">
                 <div class="pane space" v-if="tabelaProdutos==true && produtoGeral==false">
-                    <table class="display" style="width:100%" id="produtos">
+                    <!-- <div class="toolbar-actions"> -->
+                    <div class="btn-group">
+                        <a @click="createProduct()" class="btn btn-default link" style="border-radius: 3px;">
+                                Novo Produto
+                            </a>
+                    </div>
+                    <!-- </div> -->
+                    <br>
+                    <br>
+                    <table class="display" style="width:100%; border: 1px solid #d7d7d7; border-radius: 2px;" id="produtos">
                         <thead>
                             <tr>
                                 <th>Código</th>
@@ -93,10 +95,8 @@
                                 <td>{{produtoV2.quantidade}}</td>
                                 <td>R$ {{produtoV2.preco_compra}}</td>
                                 <td>
-                                    <button @click="editProduct(produtoV2)" id="font-button"
-                                        class="btn btn-large btn-default">Editar</button>
-                                    <button @click="remove(produtoV2)" id="font-button"
-                                        class="btn btn-large btn-default">Deletar</button>
+                                    <button @click="editProduct(produtoV2)" id="font-button" class="btn btn-large btn-default">Editar</button>
+                                    <button @click="remove(produtoV2)" id="font-button" class="btn btn-large btn-default">Deletar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -109,12 +109,10 @@
                                 <input type="text" class="form-control" v-model="produtoV2.codigo" placeholder="Código">
                             </div>
                             <div id="box-1" class="box">
-                                <input type="text" class="form-control" v-model="produtoV2.codigo_barras"
-                                    placeholder="Código de Barra">
+                                <input type="text" class="form-control" v-model="produtoV2.codigo_barras" placeholder="Código de Barra">
                             </div>
                             <div id="box-1" class="box">
-                                <input type="text" class="form-control" v-model="produtoV2.referencia"
-                                    placeholder="Referência">
+                                <input type="text" class="form-control" v-model="produtoV2.referencia" placeholder="Referência">
                             </div>
                         </div>
                         <div class="form-group">
@@ -130,26 +128,22 @@
                                 <input type="text" class="form-control" v-model="produtoV2.nome" placeholder="Nome">
                             </div>
                             <div id="box-3" class="box">
-                                <input type="text" class="form-control" v-model="produtoV2.descricao"
-                                    placeholder="Descrição">
+                                <input type="text" class="form-control" v-model="produtoV2.descricao" placeholder="Descrição">
                             </div>
                         </div>
                         <div class="form-group">
                             <div id="box-1" class="box">
-                                <input type="text" class="form-control" v-model="produtoV2.tipo_produto"
-                                    placeholder="Tipo">
+                                <input type="text" class="form-control" v-model="produtoV2.tipo_produto" placeholder="Tipo">
                             </div>
                             <div id="box-2" class="box">
-                                <select v-model="produtoV2.fornecedor.nome" class="form-control"
-                                    v-model="produtoV2.fornecedor.nome">
+                                <select v-model="produtoV2.fornecedor.nome" class="form-control" v-model="produtoV2.fornecedor.nome">
                                     <option value="{{produtoV2.fornecedor.nome}}" selected>{{produtoV2.fornecedor.nome}}
                                     </option>
                                     <option value="{{f.nome}}" v-for="f in fornecedoresV2">{{f.nome}}</option>
                                 </select>
                             </div>
                             <div id="box-3" class="box">
-                                <select v-model="produtoV2.fabricante.nome" class="form-control"
-                                    v-model="produtoV2.fabricante.nome">
+                                <select v-model="produtoV2.fabricante.nome" class="form-control" v-model="produtoV2.fabricante.nome">
                                     <option value="{{produtoV2.fabricante.nome}}" selected>{{produtoV2.fabricante.nome}}
                                     </option>
                                     <option value="{{f.nome}}" v-for="f in fabricantesV2">{{f.nome}}</option>
@@ -189,27 +183,22 @@
                         <div class="form-group">
                             <div class="box-line">
                                 <div class="box-line-inner-little">
-                                    <input type="text" class="form-control" v-model="produtoV2.preco_compra"
-                                        placeholder="Preço de Venda">
+                                    <input type="text" class="form-control" v-model="produtoV2.preco_compra" placeholder="Preço de Venda">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div id="box-1" class="box">
-                                <input type="text" class="form-control" v-model="produtoV2.quantidade"
-                                    placeholder="Quantidade">
+                                <input type="text" class="form-control" v-model="produtoV2.quantidade" placeholder="Quantidade">
                             </div>
                             <div id="box-2" class="box">
-                                <input type="text" class="form-control" v-model="produtoV2.margem_lucro"
-                                    placeholder="Porcentagem de Lucro">
+                                <input type="text" class="form-control" v-model="produtoV2.margem_lucro" placeholder="Porcentagem de Lucro">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="box-line">
-                                <button type="button" class="btn btn-mini btn-default"
-                                    @click="closeModal">Fechar</button>
-                                <button type="button" class="btn btn-mini btn-default"
-                                    @click="productStoreOrUpdate()">Salvar</button>
+                                <button type="button" class="btn btn-mini btn-default" @click="closeModal">Fechar</button>
+                                <button type="button" class="btn btn-mini btn-default" @click="productStoreOrUpdate()">Salvar</button>
                             </div>
                         </div>
                     </div>

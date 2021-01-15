@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="photon/css/photon.css">
     <link rel="stylesheet" href="datatables11020/datatables.min.css">
-    
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="photon/css/simples.css">
 </head>
@@ -63,22 +63,22 @@
                     </button>
                 </div>
             </div>
-            <div class="toolbar-actions">
-                <div class="btn-group">
-                    <button @click="openNcms()" class="btn btn-default link">
-                        NCM's
-                    </button>
-                    <button @click="openCfops()" class="btn btn-default link">
-                        CFOP's
-                    </button>
-                </div>
-            </div>
         </header>
         <div class="window-content">
             <div class="pane-group">
                 <div class="pane space">
+                    <div class="toolbar-actions">
+                        <div class="btn-group">
+                            <button @click="openNcms()" class="btn btn-default link">
+                                NCM's
+                            </button>
+                            <button @click="openCfops()" class="btn btn-default link">
+                                CFOP's
+                            </button>
+                        </div>
+                    </div>
                     <h3 style="padding: 0px;">NCM's</h3>
-                    <table class="display" style="width:100%" id="ncms">
+                    <table class="display" style="width:100%; border: 1px solid #d7d7d7; border-radius: 2px;" id="ncms">
                         <thead>
                             <tr>
                                 <th>Código</th>
@@ -90,7 +90,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="ncm in ncms">
+                            <tr v-for="ncm in ncms ">
                                 <td> {{ncm.codigo}}</td>
                                 <td> {{ncm.descricao}}</td>
                                 <td> {{ncm.aliquota_nacional}}</td>
@@ -103,17 +103,17 @@
                 </div>
             </div>
         </div>
-        <footer class="toolbar toolbar-footer">
-            <div class="toolbar-actions">
-              <span class="pull-left">Focux - Copyright © - Todos os Direitos Reservados</span>
+        <footer class="toolbar toolbar-footer ">
+            <div class="toolbar-actions ">
+                <span class="pull-left ">Focux - Copyright © - Todos os Direitos Reservados</span>
             </div>
         </footer>
     </div>
-    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
-    <script src="datatables11020/datatables.min.js"></script>
-    <script src="vue/vue.min.js"></script>
-    <script src="scripts/screens/fiscals/datatableset.js"></script>
-    <script src="scripts/screens/fiscals/fiscals.js"></script>
+    <script src="datatables11020/jQuery-3.3.1/jquery-3.3.1.min.js "></script>
+    <script src="datatables11020/datatables.min.js "></script>
+    <script src="vue/vue.min.js "></script>
+    <script src="scripts/screens/fiscals/datatableset.js "></script>
+    <script src="scripts/screens/fiscals/fiscals.js "></script>
 </body>
 
 </html>

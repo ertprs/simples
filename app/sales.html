@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="photon/css/simples.css">
     <link rel="stylesheet" href="datatables11020/datatables.min.css">
 </head>
+
 <body>
     <div class="window" id="main">
         <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
@@ -62,7 +63,7 @@
                     </button>
                 </div>
             </div>
-            <div class="toolbar-actions">
+            <!-- <div class="toolbar-actions">
                 <div class="btn-group">
                     <button class="btn btn-default" @click="updateBox()" style="padding: 10px">
                         Atualizar Total
@@ -89,12 +90,12 @@
                 <span class="pull-right link">
                     TOTAL EM CAIXA: R$ {{caixa.valorAtual}}
                 </span>
-            </div>
+            </div> -->
         </header>
         <div class="window-content">
             <div class="pane-group">
                 <div class="pane space">
-                    <form>
+                    <!-- <form>
                         <div class="form-group">
                             <div class="box-bleeds">
                                 <div class="box-bleeds-inner">
@@ -111,16 +112,14 @@
                         <div class="form-group">
                             <div class="box-supplement">
                                 <div class="box-supplement-inner">
-                                    <input type="text" class="form-control"
-                                        placeholder="Digite o valor a ser adicionado">
+                                    <input type="text" class="form-control" placeholder="Digite o valor a ser adicionado">
                                 </div>
                                 <div class="box-supplement-inner-button">
-                                    <button @click="remove(sale)" id="font-button"
-                                        class="btn btn-default">Suplementar</button>
+                                    <button @click="remove(sale)" id="font-button" class="btn btn-default">Suplementar</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                     <table id="vendas" class="display" style="width:100%;">
                         <thead>
                             <tr>
@@ -169,8 +168,7 @@
                                 <td>R$ {{sale.total[0].desconto}}</td>
 
                                 <td style="text-align: right" v-if="root == true">
-                                    <button @click="remove(sale)" id="font-button"
-                                        class="btn btn-default">Remover</button>
+                                    <button @click="remove(sale)" id="font-button" class="btn btn-default">Remover</button>
                                 </td>
                             </tr>
                         </tbody>
