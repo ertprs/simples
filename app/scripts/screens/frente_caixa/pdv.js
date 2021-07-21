@@ -265,7 +265,7 @@ new Vue({
             console.log(this.empresas);
 
             if (this.produtos.length === 0) {
-                location.href = "main2.html";
+                location.href = "main.html";
             }
         },
         fillPatternNote: function () {

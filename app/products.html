@@ -5,19 +5,24 @@
     <title>Simples 0.0.1</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="photon/css/photon.css">
-    <link rel="stylesheet" href="datatables11020/datatables.min.css">
-
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="photon/css/simples.css">
+    <link rel="stylesheet" href="datatables11020/datatables.min.css">
 </head>
 
 <body>
     <div class="window" id="main">
+        <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
+            <div class="pane space">
+                <div class="preloader">
+                    <img src="images/Infinity-1s-200px.gif" />
+                </div>
+            </div>
+        </div>
         <header class="toolbar toolbar-header">
             <h1 class="title">Produtos</h1>
             <div class="toolbar-actions">
                 <div class="btn-group">
-                    <a href="main2.html" class="btn btn-default link">
+                    <a href="main.html" class="btn btn-default link">
                         <span class="icon icon-home span-margin"></span> Início
                     </a>
                     <button v-on:click="goToPDV" class="btn btn-default link">
@@ -57,14 +62,7 @@
                 </div>
             </div>
         </header>
-        <div class="window-content" style="background-color: #f5f5f4">
-            <div class="pane-group" style="background-color: white; z-index: 9000;" v-if="loading == true">
-                <div class="pane space">
-                    <div class="preloader">
-                        <img src="images/Infinity-1s-200px.gif" />
-                    </div>
-                </div>
-            </div>
+        <div class="window-content" id="main">
             <div class="pane-group">
                 <div class="pane space" v-if="tabelaProdutos==true && produtoGeral==false">
                     <!-- <div class="toolbar-actions"> -->

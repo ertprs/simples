@@ -55,6 +55,7 @@ new Vue({
         foto64: ""
     },
     ready: function () {
+        console.log('FileName: [products]')
         this.loadingShow();
         this.rootus = rootus.data[0];
         this.debug = debug.data[0];

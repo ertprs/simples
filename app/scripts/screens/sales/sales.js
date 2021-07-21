@@ -88,7 +88,7 @@ new Vue({
             }
         },
         goToHome: function () {
-            location.href = "main2.html";
+            location.href = "main.html";
         },
         goSales: function () {
             location.href = "sales.html";

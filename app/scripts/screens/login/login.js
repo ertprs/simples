@@ -84,7 +84,7 @@ Vue.component('login', {
                         if (typeof this.root.$loki !== 'undefined') { rootus.update(this.root) }
 
                         db.save()
-                        location.replace("main2.html")
+                        location.replace("main.html")
                     }
                 }
             }

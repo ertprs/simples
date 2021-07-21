@@ -49,6 +49,7 @@ new Vue({
         }
     },
     beforeCreate: function () {
+        console.log('FileName: [main2]')
     },
     mounted: function () {
         this.loadingShow();

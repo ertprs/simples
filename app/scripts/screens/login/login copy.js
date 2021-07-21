@@ -57,7 +57,7 @@ new Vue({
             //     }
 
             //     db.save();
-            //     location.replace("main2.html");
+            //     location.replace("main.html");
 
             // } else if (this.user !== root_us.user && this.pass !== root_us.pass) {
             //     alert('Dados Incorretos!');
@@ -80,7 +80,7 @@ new Vue({
             //             }
 
             //             db.save();
-            //             location.replace("main2.html");
+            //             location.replace("main.html");
             //         } else {
             //         }
             //     }
@@ -107,7 +107,7 @@ new Vue({
                 }
 
                 db.save();
-                location.replace("main2.html");
+                location.replace("main.html");
 
             }).catch(function (error) {
                 console.log(error);
@@ -115,7 +115,7 @@ new Vue({
         },
         validity: function () {
             if (this.rootus.logado == true) {
-                location.replace("main2.html");
+                location.replace("main.html");
             } else {
 
             }
@@ -129,7 +129,7 @@ new Vue({
                 const dateC = moment(validity).format("YYYY-MM-DD");
 
                 if (dateB.diff(dateC, 'days') < 0) {
-                    location.replace("main2.html");
+                    location.replace("main.html");
                 }
             } else {
             }

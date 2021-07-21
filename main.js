@@ -140,7 +140,7 @@ function createWindow() {
       frame: false
     });
 
-  mainWindow.loadFile("./app/main2.html");
+  mainWindow.loadFile("./app/main.html");
   mainWindow.webContents.openDevTools();
   mainWindow.setMenu(null);
 
@@ -185,7 +185,7 @@ function onMain() {
     });
 
     globalShortcut.register('F2', () => {
-      mainWindow.loadFile("./app/main2.html");
+      mainWindow.loadFile("./app/main.html");
     });
   });
 

@@ -140,7 +140,7 @@ function createWindow() {
       frame: true
     });
 
-  mainWindow.loadFile("./app/main2.html");
+  mainWindow.loadFile("./app/main.html");
   mainWindow.webContents.openDevTools()
 
   loginWindow = new BrowserWindow(
@@ -326,7 +326,7 @@ function onMain() {
         {
           label: 'Menu',
           click: function () {
-            mainWindow.loadFile('./app/main2.html')
+            mainWindow.loadFile('./app/main.html')
           },
           accelerator: 'F2'
         },
@@ -416,7 +416,7 @@ function onMain() {
     });
 
     globalShortcut.register('F2', () => {
-      mainWindow.loadFile("./app/main2.html");
+      mainWindow.loadFile("./app/main.html");
     });
   });
 }
