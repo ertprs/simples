@@ -22,7 +22,7 @@ let salesPDVTest = db.getCollection('salesPDVTest'),
     debug = db.getCollection('debug'),
     totalEmCaixa = db.getCollection('totalEmCaixa'),
     fiscal = db.getCollection('fiscal');
-produtosV2 = db.getCollection('produtosV2');
+    produtosV2 = db.getCollection('produtosV2');
 
 new Vue({
     el: 'body',

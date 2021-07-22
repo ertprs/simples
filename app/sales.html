@@ -2,11 +2,9 @@
 <html>
 
 <head>
-    <title>Equal 0.0.1</title>
+    <title>Simples 0.0.1</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="photon/css/photon.css">
-    <link rel="stylesheet" href="styles/style.css">
-
     <link rel="stylesheet" href="photon/css/simples.css">
     <link rel="stylesheet" href="datatables11020/datatables.min.css">
 </head>
@@ -24,103 +22,50 @@
             <h1 class="title">Vendas</h1>
             <div class="toolbar-actions">
                 <div class="btn-group">
-                    <a href="main.html" class="btn btn-default link">
-                        <span class="icon icon-home span-margin"></span> Início
+                    <a href="main.html" class="btn btn-default link inicio">
+                        <span class="icon icon-home span-margin inicio"></span> Início
                     </a>
-                    <button v-on:click="goToPDV" class="btn btn-default link">
-                        <span class="icon icon-basket span-margin"></span>
+                    <button v-on:click="goToPDV" class="btn btn-default link pdv">
+                        <span class="icon icon-basket span-margin pdv"></span>
                         PDV
                     </button>
-                    <a href="sales.html" class="btn btn-default link">
-                        <span class="icon icon-archive span-margin"></span> Vendas
+                    <a href="sales.html" class="btn btn-default link vendas">
+                        <span class="icon icon-archive span-margin vendas"></span> Vendas
                     </a>
-                    <a href="products.html" class="btn btn-default link">
-                        <span class="icon icon-basket span-margin"></span> Produtos
+                    <a href="products.html" class="btn btn-default link produtos">
+                        <span class="icon icon-basket span-margin produtos"></span> Produtos
                     </a>
-                    <a href="mainRegisters.html" class="btn btn-default link">
-                        <span class="icon icon-newspaper span-margin"></span> Cadastros
+                    <a href="mainRegisters.html" class="btn btn-default link cadastros">
+                        <span class="icon icon-newspaper span-margin cadastros"></span> Cadastros
                     </a>
-                    <a href="mainNotes.html" class="btn btn-default link">
-                        <span class="icon icon-docs span-margin"></span> Notas
+                    <a href="mainNotes.html" class="btn btn-default link notas">
+                        <span class="icon icon-docs span-margin notas"></span> Notas
                     </a>
-                    <a href="support.html" class="btn btn-default link">
-                        <span class="icon icon-plus-squared span-margin"></span> Suporte
+                    <a href="support.html" class="btn btn-default link suporte">
+                        <span class="icon icon-plus-squared span-margin suporte"></span> Suporte
                     </a>
-                    <a href="reports.html" class="btn btn-default link">
-                        <span class="icon icon-book-open span-margin"></span> Relatórios
+                    <a href="reports.html" class="btn btn-default link relatorios">
+                        <span class="icon icon-book-open span-margin relatorios"></span> Relatórios
                     </a>
-                    <a href="manual.html" class="btn btn-default link">
-                        <span class="icon icon-book-open span-margin"></span> Manual
+                    <a href="manual.html" class="btn btn-default link manual">
+                        <span class="icon icon-book-open span-margin manual"></span> Manual
                     </a>
-                    <a href="settings.html" class="btn btn-default link">
-                        <span class="icon icon-cog span-margin"></span> Configurações
+                    <a href="settings.html" class="btn btn-default link configuracoes">
+                        <span class="icon icon-cog span-margin configuracoes"></span> Configurações
                     </a>
-                    <a href="shortcuts.html" class="btn btn-default link">
-                        <span class="icon icon-layout span-margin"></span> Atalhos
+                    <a href="shortcuts.html" class="btn btn-default link atalhos">
+                        <span class="icon icon-layout span-margin atalhos"></span> Atalhos
                     </a>
                     <button v-on:click="closeApplication" class="btn btn-default link buttonClose">
                         Fechar
                     </button>
                 </div>
             </div>
-            <!-- <div class="toolbar-actions">
-                <div class="btn-group">
-                    <button class="btn btn-default" @click="updateBox()" style="padding: 10px">
-                        Atualizar Total
-                    </button>
-                    <button class="btn btn-default" @click="closeBox()" style="padding: 10px">
-                        Fechar Caixa
-                    </button>
-                    <a href="sales.html" class="btn btn-default link">
-                        Geral
-                    </a>
-                    <button @click="goBleeds()" class="btn btn-default link">
-                        Sangrias
-                    </button>
-                    <button @click="goSupplements()" class="btn btn-default link">
-                        Suplementos
-                    </button>
-                    <button @click="goClosures()" class="btn btn-default link">
-                        Fechamentos
-                    </button>
-                </div>
-                <span class="pull-right link">
-                    SOMA DOS ITENS: R$ {{somaDeItensVendidos}}
-                </span>
-                <span class="pull-right link">
-                    TOTAL EM CAIXA: R$ {{caixa.valorAtual}}
-                </span>
-            </div> -->
         </header>
         <div class="window-content">
             <div class="pane-group">
                 <div class="pane space">
-                    <!-- <form>
-                        <div class="form-group">
-                            <div class="box-bleeds">
-                                <div class="box-bleeds-inner">
-                                    <input type="text" class="form-control" placeholder="Digite o valor a ser retirado">
-                                </div>
-                                <div class="box-bleeds-inner-button">
-                                    <button @click="remove(sale)" id="font-button" class="btn btn-default">Realizar
-                                        Sangria</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="form-group">
-                            <div class="box-supplement">
-                                <div class="box-supplement-inner">
-                                    <input type="text" class="form-control" placeholder="Digite o valor a ser adicionado">
-                                </div>
-                                <div class="box-supplement-inner-button">
-                                    <button @click="remove(sale)" id="font-button" class="btn btn-default">Suplementar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form> -->
-                    <table id="vendas" class="display" style="width:100%;">
+                    <table id="vendas" class="display" style="width:100%; border: 1px solid #d7d7d7; border-radius: 2px;">
                         <thead>
                             <tr>
                                 <th>Usuário</th>
@@ -186,6 +131,88 @@
     <script src="datatables11020/datatables.min.js"></script>
     <script src="scripts/screens/sales/datatableset.js"></script>
     <script src="scripts/screens/sales/sales.js"></script>
+
+    <script>
+        $( ".inicio" )
+        .mouseover(function() {
+            $(".inicio").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".inicio").css( "color", "#333" );
+        });
+
+        $( ".vendas" )
+        .mouseover(function() {
+            $(".vendas").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".vendas").css( "color", "#333" );
+        });
+
+        $( ".produtos" )
+        .mouseover(function() {
+            $(".produtos").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".produtos").css( "color", "#333" );
+        });
+
+        $( ".cadastros" )
+        .mouseover(function() {
+            $(".cadastros").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".cadastros").css( "color", "#333" );
+        });
+
+        $( ".notas" )
+        .mouseover(function() {
+            $(".notas").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".notas").css( "color", "#333" );
+        });
+
+        $( ".suporte" )
+        .mouseover(function() {
+            $(".suporte").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".suporte").css( "color", "#333" );
+        });
+
+        $( ".relatorios" )
+        .mouseover(function() {
+            $(".relatorios").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".relatorios").css( "color", "#333" );
+        });
+
+        $( ".manual" )
+        .mouseover(function() {
+            $(".manual").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".manual").css( "color", "#333" );
+        });
+
+        $( ".configuracoes" )
+        .mouseover(function() {
+            $(".configuracoes").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".configuracoes").css( "color", "#333" );
+        });
+
+        $( ".atalhos" )
+        .mouseover(function() {
+            $(".atalhos").css( "color", "red" );
+        })
+        .mouseout(function() {
+            $(".atalhos").css( "color", "#333" );
+        });
+    </script>
 </body>
 
 </html>
